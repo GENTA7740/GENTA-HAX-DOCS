@@ -20,20 +20,6 @@ string / string, string is string LOL
 
 ## Function
 ```
-void ToggleDialog(bool)
-calling function to disable OnDialogRequest, it's mean if you turn on ToggleDialog, you won't get any Dialog.
-
-# How to use
-ToggleDialog(true)
-ToggleDialog(false)
-
-# Explanation
-true for Active
-false for disable
-
-```
-
-```
 void GetInventory()
 
 # How to use
@@ -213,60 +199,7 @@ end
 if the code executed, it will scan all tile and find tile foreground ID 2 ( itemID: dirt ) then it will check foreground id above dirt and if foreground id is 0 it will finding path.
 
 ```
-## List
-```
-Cheat code list for ToggleCheat(int,bool)
-Mod Fly = 0
-Anti Respawn = 1
-Fast Fall = 2
-No Clip = 3
-Fast Take = 4
-GrowZ = 5
-Anti Bounce = 6
-Anti Portal = 7
-Anti Checkpoint = 8
-Night Vision = 9
-Ghost mode = 10
-Block Freeze State = 11
-High Jump = 12
-Move while die = 13
-See Ghosts = 14
-Anti Punch = 15
-Anti State = 16
-Touch Teleport = 17
-Anti Gravity = 18
-Nazi Water = 19
-Swastika = 20
-Block Dialog Request = 21
-Path Finder = 22
-Path finder Particle = 23
-Dance move = 24
-No Name = 25
-Cctv = 26
-See fruit = 27
-Legend Name = 28
-Free Camera = 29
-See Inside Chest = 30
-Can't Pick items = 31
-Dev mode = 32
-Visual Csn = 33
-Visual Dice = 34
-Auto Leave when mods join = 35
-Show dice roll = 36
-Skip Update = 37
-Skip Tutorial = 38
-Auto Password Door = 39
-Casino Typer = 40
-Weather exploit = 41
-Auto Msg = 42
-Auto ban when join = 43
-Auto pull when join = 44
-wrench mode = 45
-fast drop = 46
-Fast trash = 47
-Fast Vend = 48
 
-```
 ## Structure
 ```
 Packet Structure:
