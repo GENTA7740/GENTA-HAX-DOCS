@@ -48,7 +48,7 @@ addHook(hook,"OnVarlist")
 # example codes 2 ( OnPacket )
 
 function hook(packet)
-console(varlist)
+console(packet)
 end
 
 addHook(hook,"OnPacket")
