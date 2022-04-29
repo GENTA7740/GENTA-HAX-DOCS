@@ -19,6 +19,42 @@ string / string, string is string LOL
 ```
 
 ## Function
+
+```
+void ToggleCheat(std::string, boolean)
+
+# example codes
+ToggleCheat("Anti checkpoint", true) -- active
+ToggleCheat("Anti checkpoint", false) -- deactive
+
+# note
+Cheat name is same like cheat name on tab Cheats also Capital letters don't matter.
+
+```
+
+```
+void addHook(function, std::string)
+
+# example codes OnVarlist
+
+function hook(varlist)
+console(varlist[0])
+console(varlist[1])
+end
+
+addHook(hook,"OnVarlist")
+
+
+# example codes 2 ( OnPacket )
+
+function hook(packet)
+console(varlist)
+end
+
+addHook(hook,"OnPacket")
+
+```
+
 ```
 void GetInventory()
 
@@ -311,4 +347,14 @@ GetLocal().necklace = Get necklace of Local player (int)
 GetInventory() Structure
 GetInventory().id = Get itemID from Inventory Local Player ( int )
 GetInventory().amount = Get Amount of item from Inventory Local Player ( int )
+```
+
+```
+addHook list
+• OnVariant ( Variantlist )
+• OnPacket ( Text Packet )
+• OnPacketRaw ( Raw packet )
+• OnTrackPacket ( Track packet )
+• OnGameUpdatePacket ( Game update packet )
+• OnTouchAtWorldCoord ( Handle touch at world coordinate )
 ```
