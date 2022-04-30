@@ -220,3 +220,5 @@ OnGameUpdatePacket // Hook Game Update Packet
 # Example
 
 Example script [Click me!](https://github.com/GENTA7740/GENTA-HAX-DOCS/tree/main/Example)
+
+# Feel free to report bug mod on issue tab!
