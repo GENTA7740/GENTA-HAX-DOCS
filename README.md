@@ -176,4 +176,4 @@ OnGameUpdatePacket // Hook Game Update Packet
 
 # Example
 
-## Coming soon!
+Example Script [Click me!](https://github.com/GENTA7740/GENTA-HAX-DOCS/tree/main/Example).
