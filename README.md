@@ -11,12 +11,28 @@ this documentation will teach you how to make script for GentaHax
 Android/data/com.rtsoft.growtopia/script/here.lua
 ```
 
-##Basic Knowledge
-```
-bool / boolean, boolean value among true or false
-int / integer, integer value is number
-string / string, string is string LOL
-```
+# Basic Knowledge
+> float
+> Float is a shortened term for "floating point." By definition, it's a fundamental data type built into the compiler that's used to define numeric values with floating decimal points.
+
+> uint8_t 
+> unsigned integer type with width of exactly 8, 16, 32 and 64 bits respectively.
+
+> uint32_t
+> unsigned integer type with width of exactly 8, 16, 32 and 64 bits respectively.
+
+> int32_t
+> signed integer type with width of exactly 8, 16, 32 and 64 bits respectively
+with no padding bits and using 2's complement for negative values.
+
+> bool
+> A boolean data type in lua is defined using the keyword bool. Usually, 1 ( true ) and 2 ( false ) are assigned to boolean variables as their default numerical values.
+
+> int 
+> integer
+
+> string
+> String is a collection of characters.
 
 # API list
 
@@ -76,7 +92,11 @@ int back // back of Local player
 int mask // mask of Local player
 int necklace // necklace of Local player
 ```
-
+## Inventory
+```
+int id // id of item
+int count // count of item
+```
 ## Tile
 ```
 int x // Tile Pos X
@@ -107,6 +127,29 @@ int y // item position Y
 ## World
 ```
 std::string name // current world name
+```
+
+## GameUpdatePacket
+```
+uint8_t type
+uint8_t netid
+uint8_t jump_amount
+uint8_t count
+int32_t playerflags
+int32_t item
+int32_t packetflags
+float structflags
+int32_t intdata
+float vecx
+float vecy
+float vec2x
+float vec2y
+float particletime
+uint32_t mstate1
+uint32_t mstate2
+uint32_t datasize
+uint32_t data
+
 ```
 
 # Packet Type
@@ -176,4 +219,4 @@ OnGameUpdatePacket // Hook Game Update Packet
 
 # Example
 
-Example Script [Click me!](https://github.com/GENTA7740/GENTA-HAX-DOCS/tree/main/Example).
+Example script [Click me!](https://github.com/GENTA7740/GENTA-HAX-DOCS/tree/main/Example)
