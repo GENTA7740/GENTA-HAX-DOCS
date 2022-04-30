@@ -1,0 +1,5 @@
+console("foreground:"..CheckTile(87,24).fg)
+console("background:"..CheckTile(87,24).bg)
+console("Y:"..CheckTile(87,24).x)
+console("X:"..CheckTile(87,24).y)
+console("ready harvest:"..CheckTile(87,24).readyharvest)
