@@ -120,6 +120,8 @@ int VisualStyle // item visual Style
 ```
 int id // item id
 int amount // item amount
+int oid // object id
+int invbits // unk
 int x // item position X
 int y // item position Y
 ```
