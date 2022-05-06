@@ -4,7 +4,7 @@ this documentation will teach you how to make script for GentaHax
 ## Requirements
 - You must know basic lua scripts.
 - You must have Genta Hax :v
-
+- Knowledge basic lua programming [Lua site](https://lua.org)
 
 ## File Path
 ```
