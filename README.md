@@ -45,19 +45,17 @@ with no padding bits and using 2's complement for negative values.
 ###### • Tile* CheckTile(int, int) // x, y
 ###### • ItemInfo* GetItemByID(int) // itemID
 ###### • NetAvatar* GetLocal()
-
 ###### • NetAvatar* GetPlayerByNetID(int) // NetID
 ###### • WorldObject* GetWorldObject()
 ###### • void CreateDialog(std::string)
 ###### • Inventory* GetInventory()
 ###### • World* GetWorld()
-
-###### • void SendVarlist(bool, TankPacketStruct) // effect, packet
+###### • void SendVarlist(bool, TankPacketStruct) // use cloth effect, packet
 ###### • void SetLocalPlayer(NetAvatar*)
-###### • bool ToggleCheat(std::string, bool)
-###### • void addHook(function, std::string)
-###### • void Log(std::string)
-
+###### • bool ToggleCheat(std::string, bool) // Cheat name | true / false ( on / off )
+###### • void addHook(function, std::string) // function | Hook flags
+###### • void Log(std::string) // Text
+###### • std::string MakeRequest(std::string, std::string) // Link | POST / GET
 # Structure
 
 ## TankPacketStruct
