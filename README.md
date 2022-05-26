@@ -26,7 +26,7 @@ Android/data/com.rtsoft.growtopia/script/here.lua
 with no padding bits and using 2's complement for negative values.
 
 > bool
-> A boolean data type in lua is defined using the keyword bool. Usually, 1 ( true ) and 2 ( false ) are assigned to boolean variables as their default numerical values.
+> A boolean data type in lua is defined using the keyword bool. Usually, 1 ( true ) and 0 ( false ) are assigned to boolean variables as their default numerical values.
 
 > int 
 > integer
