@@ -50,7 +50,7 @@ with no padding bits and using 2's complement for negative values.
 ###### • void CreateDialog(std::string)
 ###### • Inventory* GetInventory()
 ###### • World* GetWorld()
-###### • void SendVarlist(bool, TankPacketStruct) // use cloth effect, packet
+###### • void SendVarlist(bool, variantlist) // use cloth effect, packet
 ###### • void SetLocalPlayer(NetAvatar*)
 ###### • bool ToggleCheat(std::string, bool) // Cheat name | true / false ( on / off )
 ###### • void addHook(function, std::string) // function | Hook flags
