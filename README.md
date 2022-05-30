@@ -50,8 +50,8 @@ with no padding bits and using 2's complement for negative values.
 ###### • void CreateDialog(std::string)
 ###### • Inventory* GetInventory()
 ###### • World* GetWorld()
-###### • void SendVarlist(bool, variantlist) // use cloth effect, packet
-###### • void SetLocalPlayer(NetAvatar*)
+###### • void SendVarlist(variantlist_t, int, int) // Variantlist | delay | netid
+###### • void SetLocalPlayer(bool, NetAvatar) // Use cloth effect | NetAvatar structure
 ###### • bool ToggleCheat(std::string, bool) // Cheat name | true / false ( on / off )
 ###### • void addHook(function, std::string) // function | Hook flags
 ###### • void Log(std::string) // Text
