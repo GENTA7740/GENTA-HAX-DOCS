@@ -1,7 +1,6 @@
 ## GentaHax Script Documentation
+this documentation will teach you how to make script for GentaHax
 [![Discord](https://img.shields.io/discord/870604052281573406)](https://discord.gg/JTM9b6XR3A)
-\nthis documentation will teach you how to make script for GentaHax
-
 ## Requirements
 - You must know basic lua scripts.
 - You must have Genta Hax :v
