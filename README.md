@@ -40,7 +40,7 @@ with no padding bits and using 2's complement for negative values.
 ###### • void sleep(int) // Milliseconds
 ###### • void SendPacketRaw(bool, TankPacketStruct)
 ###### • void SendPacket(ENetPacketFlag, std::string) // Type, Packet
-###### • void findpath(int, int) // x, y
+###### • bool findpath(int, int) // x, y note: it will return true if path found, opposite it will return false if path not found
 ###### • Tile* GetTile(int , int) // x, y
 ###### • Tile* CheckTile(int, int) // x, y
 ###### • ItemInfo* GetItemByID(int) // itemID
