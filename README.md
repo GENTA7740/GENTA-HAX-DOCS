@@ -131,11 +131,13 @@ std::string name // current world name
 ```
 
 ## NPCList
+```
 int type // NPC Type: Normal Ghost 1, Mind ghost 12
 int currentX // Current NPC Position X
 int currentY // Current NPC Position Y
 int targetX // Target NPC Position X
 int targetY // Target NPC position Y
+```
 
 ## GameUpdatePacket
 ```
