@@ -55,8 +55,10 @@ with no padding bits and using 2's complement for negative values.
 ###### • bool ToggleCheat(std::string, bool) // Cheat name | true / false ( on / off )
 ###### • void addHook(function, std::string) // function | Hook flags
 ###### • void Log(std::string) // Text
-###### • std::string MakeRequest(std::string, std::string) // Link | POST / GET
 ###### • NPCList* NPCList()
+###### • std::string MakeRequest("POST", Http*) // Method | Http Structure ( POST )
+###### • std::string MakeRequest("GET", std::string) // Method | URL ( GET )
+
 # Structure
 
 ## TankPacketStruct
@@ -128,6 +130,13 @@ int y // item position Y
 ## World
 ```
 std::string name // current world name
+```
+
+## Http
+```
+string url // URL
+string body // Post body
+string type // Content Type. Example: application/x-www-form-urlencoded
 ```
 
 ## NPCList
