@@ -141,6 +141,7 @@ string type // Content Type. Example: application/x-www-form-urlencoded
 
 ## NPCList
 ```
+int id // NPC ID
 int type // NPC Type: Normal Ghost 1, Mind ghost 12
 int currentX // Current NPC Position X
 int currentY // Current NPC Position Y
