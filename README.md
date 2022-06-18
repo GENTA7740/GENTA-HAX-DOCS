@@ -136,7 +136,7 @@ std::string name // current world name
 ```
 string url // URL
 string body // Post body
-string type // Content Type. Example: application/x-www-form-urlencoded
+string contenttype // Content Type. Example: application/x-www-form-urlencoded
 ```
 
 ## NPCList
