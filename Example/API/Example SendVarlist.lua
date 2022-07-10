@@ -6,4 +6,4 @@ add_textbox|Hello world!|left|2480|
 add_quick_exit|
 end_dialog|||CLOSE|
 ]])
-SendVarlist(pkt)
+SendVarlist(pkt, 0, GetLocal().netid)
