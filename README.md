@@ -36,28 +36,27 @@ with no padding bits and using 2's complement for negative values.
 
 # API list
 
-###### • void console(std::string)
-###### • void sleep(int) // Milliseconds
-###### • void SendPacketRaw(bool, TankPacketStruct)
-###### • void SendPacket(ENetPacketFlag, std::string) // Type, Packet
-###### • bool findpath(int, int) // x, y note: it will return true if path found, opposite it will return false if path not found
-###### • Tile* GetTile(int , int) // x, y
-###### • Tile* CheckTile(int, int) // x, y
-###### • ItemInfo* GetItemByID(int) // itemID
+###### • bool LogToConsole(std::string)
+###### • bool SleepMS(int) // Milliseconds
+###### • bool SleepM(int) // Seconds
+###### • bool SendPacketRaw(bool send_to_client, TankPacketStruct packet, int type)
+###### • void SendPacket(int type, std::string pkt) // Type, Packet
+###### • bool findpath(int x, int y, int delayMS) // x, y note: it will return true if path found, opposite it will return false if path not found
+###### • std::vector<Tile> GetTile() //
+###### • Tile* CheckTile(int x, int y)
+###### • ItemInfo* GetItemByID(int itemID)
 ###### • NetAvatar* GetLocal()
-###### • NetAvatar* GetPlayerByNetID(int) // NetID
-###### • WorldObject* GetWorldObject()
-###### • void CreateDialog(std::string)
-###### • Inventory* GetInventory()
+###### • NetAvatar* GetPlayerByNetID(int netid)
+###### • std::list<NetAvatar*> GetPlayerlist()
+###### • std::list<WorldObject*> GetWorldObject()
+###### • std::list<Inventory*> GetInventory()
 ###### • World* GetWorld()
 ###### • void SendVarlist(variantlist_t, int, int) // Variantlist | delay | netid
 ###### • void SetLocalPlayer(bool, NetAvatar) // Use cloth effect | NetAvatar structure
-###### • bool ToggleCheat(std::string, bool) // Cheat name | true / false ( on / off )
-###### • void addHook(function, std::string) // function | Hook flags
-###### • void Log(std::string) // Text
-###### • NPCList* NPCList()
-###### • std::string MakeRequest("POST", Http*) // Method | Http Structure ( POST )
-###### • std::string MakeRequest("GET", std::string) // Method | URL ( GET )
+###### • bool ToggleCheat(std::string cheat_name, bool state)
+###### • void addHook(function, std::string Hook_Name)
+###### • void Log(std::string text)
+###### • std::list<NPCList*> NPCList()
 
 # Structure
 
@@ -76,13 +75,15 @@ int py // Punch Y
 
 ## NetAvatar
 ```
-int posX // X position of Local player
-int posY // Y position of Local player
+{
+  int x;
+  int y;
+} pos;
 std::string name // name of Local player
 std::string country // country code of Local player
 int userid // userID of Local player
 int status // status of Local player
-bool isLeft // is local player facing left
+bool facing // is local player facing left
 int hair // hair of Local player
 int shirt // shirt of Local player
 int pants // pants of Local player
@@ -98,13 +99,28 @@ int necklace // necklace of Local player
 int id // id of item
 int count // count of item
 ```
+
+## ExtraTile
+```
+int type
+int growth
+int owner
+std::string label // Sign, Door, Audio racks
+int volume
+int fruit_count
+int last_update // GT Timing sh*t
+```
+
 ## Tile
 ```
-int x // Tile Pos X
-int y // Tile Pos Y
+{
+  int x;
+  int y;
+} pos;
 int fg // Tile Foreground itemID
 int bg // Tile Background itemID
 bool readyharvest // Tile Ready harvest
+ExtraTile* extra // Check if extra true before accessing, or your script will terminated;
 ```
 
 ## ItemInfo
@@ -123,8 +139,10 @@ int id // item id
 int amount // item amount
 int oid // object id
 int invbits // unk
-int x // item position X
-int y // item position Y
+{
+  int x;
+  int y;
+} pos;
 ```
 
 ## World
@@ -132,21 +150,19 @@ int y // item position Y
 std::string name // current world name
 ```
 
-## Http
-```
-string url // URL
-string body // Post body
-string contenttype // Content Type. Example: application/x-www-form-urlencoded
-```
 
 ## NPCList
 ```
 int id // NPC ID
 int type // NPC Type: Normal Ghost 1, Mind ghost 12
-int currentX // Current NPC Position X
-int currentY // Current NPC Position Y
-int targetX // Target NPC Position X
-int targetY // Target NPC position Y
+{
+  int x;
+  int y;
+} current; // Current npc position in realtime
+{
+  int x;
+  int y;
+} target; // NPC will move into this target position;
 ```
 
 ## GameUpdatePacket
