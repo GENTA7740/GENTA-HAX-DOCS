@@ -83,6 +83,7 @@ std::string name // name of Local player
 std::string country // country code of Local player
 int userid // userID of Local player
 int status // status of Local player
+int netid // local netID
 bool facing // is local player facing left
 int hair // hair of Local player
 int shirt // shirt of Local player
