@@ -42,7 +42,7 @@ with no padding bits and using 2's complement for negative values.
 ###### • bool SendPacketRaw(bool send_to_client, TankPacketStruct packet, int type)
 ###### • void SendPacket(int type, std::string pkt) // Type, Packet
 ###### • bool findpath(int x, int y, int delayMS) // x, y note: it will return true if path found, opposite it will return false if path not found
-###### • std::vector<Tile> GetTile()
+###### • std::vector<Tile*> GetTile()
 ###### • Tile* CheckTile(int x, int y)
 ###### • ItemInfo* GetItemByID(int itemID)
 ###### • NetAvatar* GetLocal()
