@@ -38,7 +38,7 @@ with no padding bits and using 2's complement for negative values.
 
 ###### • bool LogToConsole(std::string)
 ###### • bool SleepMS(int) // Milliseconds
-###### • bool SleepM(int) // Minute
+###### • bool SleepS(int) // Second
 ###### • bool SendPacketRaw(bool send_to_client, TankPacketStruct packet)
 ###### • void SendPacket(int type, std::string pkt) // Type, Packet
 ###### • bool FindPath(int x, int y, int delayMS) // delayMS is optional
