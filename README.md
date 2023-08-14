@@ -126,12 +126,10 @@ ExtraTile* extra // Check if extra true before accessing, or your script will te
 
 ## ItemInfo
 ```
-std::string Name // Name of item
-int ItemType // Item Type
-std::string FileName // Name file texture of item
-int Rarity // Item Rarity
-int Growth // item growth
-int VisualStyle // item visual Style
+std::string name // Name of item
+int type // Item Type
+int rarity // Item Rarity
+int growth // item growt time
 ```
 
 ## WorldObject
