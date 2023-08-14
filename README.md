@@ -50,7 +50,7 @@ with no padding bits and using 2's complement for negative values.
 ###### • std::list<NetAvatar*> GetPlayerlist()
 ###### • std::list<WorldObject*> GetWorldObject()
 ###### • std::list<Inventory*> GetInventory()
-###### • void SendVariant(variantlist_t, int, int) // Variantlist | delay | netid
+###### • void SendVariant(variantlist_t, int, int) // Variantlist | netid | delay
 ###### • void addHook(function, std::string Hook_Name)
 ###### • void Log(std::string text)
 ###### • std::list<NPCList*> NPCList()
