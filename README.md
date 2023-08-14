@@ -50,13 +50,16 @@ with no padding bits and using 2's complement for negative values.
 ###### • std::list<NetAvatar*> GetPlayerlist()
 ###### • std::list<WorldObject*> GetWorldObject()
 ###### • std::list<Inventory*> GetInventory()
-###### • World* GetWorld()
 ###### • void SendVarlist(variantlist_t, int, int) // Variantlist | delay | netid
-###### • void SetLocalPlayer(bool, NetAvatar) // Use cloth effect | NetAvatar structure
-###### • bool ToggleCheat(std::string cheat_name, bool state)
 ###### • void addHook(function, std::string Hook_Name)
 ###### • void Log(std::string text)
 ###### • std::list<NPCList*> NPCList()
+
+# Coming soon
+
+###### • bool ToggleCheat(std::string cheat_name, bool state)
+###### • void SetLocalPlayer(bool, NetAvatar) // Use cloth effect | NetAvatar structure
+###### • World* GetWorld()
 
 # Structure
 
