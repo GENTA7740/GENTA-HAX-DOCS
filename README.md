@@ -246,7 +246,7 @@ ENET_PACKET_FLAG_SENT = 8
 
 # Hooking
 ```
-OnPacket // Game Text Packet
+OnTextPacket // Game Text Packet
 OnVarlist // Variant list Hook
 OnTouch // Hook Handle Touch At World Pos
 // Coming soon
