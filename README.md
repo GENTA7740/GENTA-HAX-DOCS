@@ -156,6 +156,9 @@ int invbits // unk
 ## World
 ```
 std::string name // current world name
+int height
+int width
+int last_oid
 ```
 
 
