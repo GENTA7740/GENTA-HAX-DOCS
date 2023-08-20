@@ -98,6 +98,10 @@ int hand // hand of Local player
 int back // back of Local player
 int mask // mask of Local player
 int necklace // necklace of Local player
+int ping // Peer roundtrip
+int punchid // local punch id
+int gems_collected // unknown
+int gems // local gems count
 ```
 ## Inventory
 ```
