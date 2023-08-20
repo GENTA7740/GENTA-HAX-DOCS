@@ -51,7 +51,7 @@ with no padding bits and using 2's complement for negative values.
 ###### • std::list<WorldObject*> GetWorldObject()
 ###### • std::list<Inventory*> GetInventory()
 ###### • void SendVariant(variantlist_t, int, int) // Variantlist | netid | delay
-###### • void AddHook(function, std::string Hook_Name)
+###### • void AddHook(GentaHook, std::string HookLabel, function)
 ###### • void Log(std::string text)
 ###### • std::list<NPCList*> NPCList()
 
@@ -74,6 +74,7 @@ int xspeed // player X speed
 int yspeed // player Y speed
 int px // Punch X
 int py // Punch Y
+int netid // NetID
 ```
 
 ## NetAvatar
@@ -244,7 +245,7 @@ ENET_PACKET_FLAG_UNRELIABLE_FRAGMENT = 3
 ENET_PACKET_FLAG_SENT = 8
 ```
 
-# Hooking
+# GentaHook
 ```
 OnTextPacket // Game Text Packet
 OnVarlist // Variant list Hook
