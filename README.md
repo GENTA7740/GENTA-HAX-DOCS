@@ -68,12 +68,12 @@ with no padding bits and using 2's complement for negative values.
 int type // Packet type
 int state // Character state
 int value // Value
-int posX // Player Position X
-int posY // Player Position Y
-int xspeed // player X speed
-int yspeed // player Y speed
-int px // Punch X
-int py // Punch Y
+int x // Player Position X
+int y // Player Position Y
+int speedx // player X speed
+int speedy // player Y speed
+int tilex // Punch X
+int tiley // Punch Y
 int netid // NetID
 ```
 
@@ -110,6 +110,7 @@ int count // count of item
 int type
 int growth
 int owner
+int flags
 std::string label // Sign, Door, Audio racks
 int volume
 int fruit_count
