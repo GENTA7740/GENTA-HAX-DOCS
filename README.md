@@ -115,6 +115,7 @@ int type
 int growth
 int owner
 int flags
+bool ready // ready harvest / no
 std::string label // Sign, Door, Audio racks
 int volume
 int fruit_count
@@ -129,7 +130,6 @@ int last_update // GT Timing sh*t
 } pos;
 int fg // Tile Foreground itemID
 int bg // Tile Background itemID
-bool readyharvest // Tile Ready harvest
 ExtraTile* extra // Check if extra true before accessing, or your script will terminated;
 ```
 
