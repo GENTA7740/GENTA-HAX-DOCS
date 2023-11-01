@@ -257,14 +257,27 @@ ENET_PACKET_FLAG_SENT = 8
 OnTextPacket // Game Text Packet
 OnVarlist // Variant list Hook
 OnTouch // Hook Handle Touch At World Pos
-OnRender // Hook OpenGL 3.0 renderer ( ImGui Renderer Coming soon! )
+OnRender // Hook OpenGL 3.0 renderer ( ImGui Renderer Coming soon )
 
 // Coming soon
-OnPacketRaw // Game Packet Raw
-OnChooseItem // Hook choosing item 
+OnRawPacket // Game Packet Raw
 OnGameUpdatePacket // Hook Game Update Packet
 ```
 
+# GentaHook Parameter
+
+## OnTextPacket
+###### • bool onTextPacketHook(int type, const std::string& packet);
+## OnVarlist
+###### • bool onVarlist(variantlist_t var, int netid);
+## OnTouch
+###### • void onTouch(int touchX, int touchY);
+## OnRender
+###### • void onRender(int isRendering);
+## OnPacketRaw
+###### • bool onPacketRaw(TankPacketStruct raw, int type, size_t size, int flags);
+## OnGameUpdatePacket
+###### • bool onGameUpdatePacket(TankPacketStruct raw);
 # Example
 
 Example script [Click me!](https://github.com/GENTA7740/GENTA-HAX-DOCS/tree/main/Example)
