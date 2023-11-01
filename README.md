@@ -36,30 +36,29 @@ with no padding bits and using 2's complement for negative values.
 
 # API list
 
-###### • bool LogToConsole(std::string)
-###### • bool SleepMS(int) // Milliseconds
-###### • bool SleepS(int) // Second
-###### • bool SendPacketRaw(bool send_to_client, TankPacketStruct packet)
-###### • void SendPacket(int type, std::string pkt) // Type, Packet
-###### • bool FindPath(int x, int y, int delayMS) // delayMS is optional
-###### • std::vector<Tile*> GetTile()
-###### • Tile* CheckTile(int x, int y)
-###### • ItemInfo* GetItemByID(int itemID)
-###### • NetAvatar* GetLocal()
-###### • NetAvatar* GetPlayerByNetID(int netid)
-###### • std::list<NetAvatar*> GetPlayerlist()
-###### • std::list<WorldObject*> GetWorldObject()
-###### • std::list<Inventory*> GetInventory()
-###### • void SendVariant(variantlist_t, int, int) // Variantlist | netid | delay
-###### • void AddHook(GentaHook, std::string HookLabel, function)
-###### • void Log(std::string text)
-###### • std::list<NPCList*> NPCList()
+###### • bool logToConsole(std::string)
+###### • bool sleep(int) // int ( Sleep time in Milliseconds )
+###### • bool sendPacketRaw(bool send_to_client, TankPacketStruct packet)
+###### • void sendPacket(int type, std::string pkt) // Type, Packet
+###### • bool findPath(int x, int y, int delayMS) // delayMS is optional
+###### • std::vector<Tile*> getTile()
+###### • Tile* checkTile(int x, int y)
+###### • ItemInfo* getItemByID(int itemID)
+###### • NetAvatar* getLocal()
+###### • NetAvatar* getPlayerByNetID(int netid)
+###### • std::list<NetAvatar*> getPlayerlist()
+###### • std::list<WorldObject*> getWorldObject()
+###### • std::list<Inventory*> getInventory()
+###### • void sendVariant(variantlist_t, int, int) // Variantlist | netid | delay
+###### • void addHook(GentaHook, std::string HookLabel, function)
+###### • void doLog(std::string text)
+###### • std::list<NPCList*> getNpc()
 
 # Coming soon
 
-###### • bool ToggleCheat(std::string cheat_name, bool state)
-###### • void SetLocalPlayer(bool, NetAvatar) // Use cloth effect | NetAvatar structure
-###### • World* GetWorld()
+###### • bool toggleCheat(std::string cheat_name, bool state)
+###### • void setLocalPlayer(bool, NetAvatar) // Use cloth effect | NetAvatar structure
+###### • World* getWorld()
 
 # Structure
 
@@ -85,9 +84,9 @@ int netid // NetID
 } pos;
 std::string name // name of Local player
 std::string country // country code of Local player
-int userid // userID of Local player
+int userId // userID of Local player
 int status // status of Local player
-int netid // local netID
+int netId // local netID
 bool facing // is local player facing left
 int hair // hair of Local player
 int shirt // shirt of Local player
@@ -99,8 +98,8 @@ int back // back of Local player
 int mask // mask of Local player
 int necklace // necklace of Local player
 int ping // Peer roundtrip
-int punchid // local punch id
-int gems_collected // unknown
+int punchId // local punch id
+int gemsCollected // unknown
 int gems // local gems count
 ```
 ## Inventory
@@ -118,8 +117,8 @@ int flags
 bool ready // ready harvest / no
 std::string label // Sign, Door, Audio racks
 int volume
-int fruit_count
-int last_update // GT Timing sh*t
+int fruitCount
+int lastUpdate // GT Timing sh*t
 ```
 
 ## Tile
@@ -146,7 +145,7 @@ int growth // item growt time
 int id // item id
 int amount // item amount
 int oid // object id
-int invbits // unk
+int flags // unk
 {
   int x;
   int y;
@@ -158,7 +157,7 @@ int invbits // unk
 std::string name // current world name
 int height
 int width
-int last_oid
+int lastOid
 ```
 
 
@@ -258,11 +257,11 @@ ENET_PACKET_FLAG_SENT = 8
 OnTextPacket // Game Text Packet
 OnVarlist // Variant list Hook
 OnTouch // Hook Handle Touch At World Pos
+OnRender // Hook OpenGL 3.0 renderer ( ImGui Renderer Coming soon! )
+
 // Coming soon
-OnRender
 OnPacketRaw // Game Packet Raw
-OnChooseItem // Hook choosing item
-OnTrackPacket // Hook Track packet
+OnChooseItem // Hook choosing item 
 OnGameUpdatePacket // Hook Game Update Packet
 ```
 
