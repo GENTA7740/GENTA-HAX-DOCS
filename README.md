@@ -53,14 +53,55 @@ with no padding bits and using 2's complement for negative values.
 ###### • void AddHook(GentaHook, std::string HookLabel, function)
 ###### • void doLog(std::string text)
 ###### • std::list<NPCList*> getNpc()
-
+###### • bool toggleCheat(int cheat_code, bool state)
+###### • void getCheat(int cheat_code)
+###### • bool toggleCheat(std::string cheat_name, bool state)
+###### • Vector2f getTouchAtWorldPos()
+###### • Vector2f getTouchAtScreenPos()
 # Coming soon
 
-###### • bool toggleCheat(std::string cheat_name, bool state)
+
 ###### • void setLocalPlayer(bool, NetAvatar) // Use cloth effect | NetAvatar structure
 ###### • World* getWorld()
 
+# Cheat Code
+```
+"Fast Fruit" = 0
+"Ghost Mode" = 1
+"Night Vision" 2
+"Can See Ghost" = 3
+"Anti Bounce" = 4
+"Death Anywhere" = 5
+"No Clip" = 6
+"Bypass Death" = 7
+"Show Door Label" = 8
+"Show Sign Label" = 9
+"Anti Portal" = 10
+"Dev Mode" = 11
+"Fast Wheel" = 12
+"Real Fake Bubble" = 13
+"Show Ping" = 14
+"Anti State" = 15
+"Anti Punch" = 16
+"Path Finder" = 17
+"Skip Update" = 18
+"Anti Tile Activation" = 19
+"Anti Respawn" = 20
+"Anti Freeze State" = 21
+"Can't Take Item" = 22
+"Can't move" = 23
+"Fast Dice" = 24
+"Auto Acc" = 25
+"Mod Fly = 26
+```
+
 # Structure
+
+## Vector2f
+```
+float x;
+float y;
+```
 
 ## TankPacketStruct
 ```
@@ -102,6 +143,7 @@ int punchId // local punch id
 int gemsCollected // unknown
 int gems // local gems count
 ```
+
 ## Inventory
 ```
 int id // id of item
