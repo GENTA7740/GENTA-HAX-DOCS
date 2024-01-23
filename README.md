@@ -58,11 +58,11 @@ with no padding bits and using 2's complement for negative values.
 ###### • bool toggleCheat(std::string cheat_name, bool state)
 ###### • Vector2f getTouchAtWorldPos()
 ###### • Vector2f getTouchAtScreenPos()
+###### • World* getWorld()
 # Coming soon
 
-
 ###### • void setLocalPlayer(bool, NetAvatar) // Use cloth effect | NetAvatar structure
-###### • World* getWorld()
+
 
 # Cheat Code
 ```
@@ -311,12 +311,15 @@ ENET_PACKET_FLAG_SENT = 8
 ###### • bool onVarlist(variantlist_t var, int netid);
 ## OnTouch
 ###### • void onTouch(int touchX, int touchY);
+
+# COMING SOON ( MAYBE )
 ## OnRender
 ###### • void onRender(int isRendering);
 ## OnPacketRaw
 ###### • bool onPacketRaw(TankPacketStruct raw, int type, size_t size, int flags);
 ## OnGameUpdatePacket
 ###### • bool onGameUpdatePacket(TankPacketStruct raw);
+
 # Example
 
 Example script [Click me!](https://github.com/GENTA7740/GENTA-HAX-DOCS/tree/main/Example)
