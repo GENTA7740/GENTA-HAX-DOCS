@@ -55,7 +55,6 @@ with no padding bits and using 2's complement for negative values.
 ###### • std::list<NPCList*> getNpc()
 ###### • bool toggleCheat(int cheat_code, bool state)
 ###### • void getCheat(int cheat_code)
-###### • bool toggleCheat(std::string cheat_name, bool state)
 ###### • Vector2f getTouchAtWorldPos()
 ###### • Vector2f getTouchAtScreenPos()
 ###### • World* getWorld()
