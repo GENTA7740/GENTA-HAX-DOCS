@@ -171,7 +171,6 @@ int lastUpdate // GT Timing sh*t
 } pos;
 int fg // Tile Foreground itemID
 int bg // Tile Background itemID
-ExtraTile* extra // Check if extra true before accessing, or your script will terminated;
 ```
 
 ## ItemInfo
