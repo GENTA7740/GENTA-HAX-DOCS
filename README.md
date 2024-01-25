@@ -14,26 +14,33 @@ Android/data/com.rtsoft.growtopia/script/here.lua
 # Basic Knowledge
 > float
 > Float is a shortened term for "floating point." By definition, it's a fundamental data type built into the compiler that's used to define numeric values with floating decimal points.
+> Example: 0.123 1.356 44.264
 
 > uint8_t 
 > unsigned integer type with width of exactly 8, 16, 32 and 64 bits respectively.
+> Example: 0 - 255.
 
 > uint32_t
 > unsigned integer type with width of exactly 8, 16, 32 and 64 bits respectively.
+> Example: 0 - 4294967295.
 
 > int32_t
-> signed integer type with width of exactly 8, 16, 32 and 64 bits respectively
-with no padding bits and using 2's complement for negative values.
+> signed integer type with width of exactly 8, 16, 32 and 64 bits respectively.
+> with no padding bits and using 2's complement for negative values.
+> Example: -2,147,483,648 - 2147483647.
 
 > bool
 > A boolean data type in lua is defined using the keyword bool. Usually, 1 ( true ) and 0 ( false ) are assigned to boolean variables as their default numerical values.
+> Example: true or false, 1 as true or 0 as false.
 
 > int 
 > integer
+> Example: -2147483647 - 2147483647.
+
 
 > string
 > String is a collection of characters.
-
+> Example: Kontol
 # API list
 
 ###### • void logToConsole(std::string)
