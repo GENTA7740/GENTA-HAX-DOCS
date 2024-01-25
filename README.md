@@ -36,11 +36,11 @@ with no padding bits and using 2's complement for negative values.
 
 # API list
 
-###### • bool logToConsole(std::string)
-###### • bool sleep(int) // int ( Sleep time in Milliseconds )
-###### • bool sendPacketRaw(bool send_to_client, TankPacketStruct packet)
+###### • void logToConsole(std::string)
+###### • void sleep(int) // int ( Sleep time in Milliseconds )
+###### • void sendPacketRaw(bool send_to_client, TankPacketStruct packet)
 ###### • void sendPacket(int type, std::string pkt) // Type, Packet
-###### • bool findPath(int x, int y, int delayMS) // delayMS is optional
+###### • void findPath(int x, int y, int delayMS) // delayMS is optional
 ###### • std::vector<Tile*> getTile()
 ###### • Tile* checkTile(int x, int y)
 ###### • ItemInfo* getItemByID(int itemID)
