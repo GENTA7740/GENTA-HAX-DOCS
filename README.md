@@ -46,6 +46,7 @@ Android/data/com.rtsoft.growtopia/script/here.lua
 ###### • void logToConsole(std::string)
 ###### • void sleep(int) // int ( Sleep time in Milliseconds )
 ###### • void sendPacketRaw(bool send_to_client, TankPacketStruct packet)
+###### • void requestTileChange(int x, int y, int item_id)
 ###### • void sendPacket(int type, std::string pkt) // Type, Packet
 ###### • void findPath(int x, int y, int delayMS) // delayMS is optional
 ###### • std::vector<Tile*> getTile()
