@@ -49,6 +49,7 @@ Android/data/com.rtsoft.growtopia/script/here.lua
 ###### • void sendPacket(int type, std::string pkt) // Type, Packet
 ###### • void findPath(int x, int y, int delayMS) // delayMS is optional
 ###### • std::vector<Tile*> getTile()
+###### • TileExtra* getTileExtra()
 ###### • Tile* checkTile(int x, int y)
 ###### • ItemInfo* getItemByID(int itemID)
 ###### • NetAvatar* getLocal()
@@ -156,14 +157,16 @@ int id // id of item
 int count // count of item
 ```
 
-## ExtraTile
+## TileExtra
 ```
+bool valid // if there's tile extra data it will return true.
 int type
 int growth
 int owner
 int flags
 bool ready // ready harvest / no
 std::string label // Sign, Door, Audio racks
+std::string padding1
 int volume
 int fruitCount
 int lastUpdate // GT Timing sh*t
