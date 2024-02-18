@@ -50,7 +50,7 @@ Android/data/com.rtsoft.growtopia/script/here.lua
 ###### • void sendPacket(int type, std::string pkt) // Type, Packet
 ###### • void findPath(int x, int y, int delayMS) // delayMS is optional
 ###### • std::vector<Tile*> getTile()
-###### • TileExtra* getTileExtra()
+###### • TileExtra* getExtraTile()
 ###### • Tile* checkTile(int x, int y)
 ###### • ItemInfo* getItemByID(int itemID)
 ###### • NetAvatar* getLocal()
