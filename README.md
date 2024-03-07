@@ -42,7 +42,10 @@ Android/data/com.rtsoft.growtopia/script/here.lua
 > String is a collection of characters.
 > Example: Kontol
 # API list
-
+###### • void randomMac()
+###### • void randomGid()
+###### • void setMac(std::string) // it has max 18 character.
+###### • void setGid(std::string) // it has max 37 character.
 ###### • void logToConsole(std::string)
 ###### • void sleep(int) // int ( Sleep time in Milliseconds )
 ###### • void sendPacketRaw(bool send_to_client, TankPacketStruct packet)
