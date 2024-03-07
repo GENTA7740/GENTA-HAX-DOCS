@@ -42,6 +42,8 @@ Android/data/com.rtsoft.growtopia/script/here.lua
 > String is a collection of characters.
 > Example: Kontol
 # API list
+###### • void requestCollect(x, y, itemID) // untested.
+###### • long getCurrentTimeInternal() // return current internal time in milliseconds.
 ###### • void randomMac()
 ###### • void randomGid()
 ###### • void setMac(std::string) // it has max 18 character.
