@@ -325,14 +325,15 @@ ENET_PACKET_FLAG_SENT = 8
 ###### • bool onVarlist(variantlist_t var, int netid);
 ## OnTouch
 ###### • void onTouch(int touchX, int touchY);
-
-# COMING SOON ( MAYBE )
-## OnRender
-###### • void onRender(int isRendering);
 ## OnPacketRaw
 ###### • bool onPacketRaw(TankPacketStruct raw, int type, size_t size, int flags);
 ## OnGameUpdatePacket
 ###### • bool onGameUpdatePacket(TankPacketStruct raw);
+
+# COMING SOON ( MAYBE )
+## OnRender
+###### • void onRender(int isRendering);
+
 
 # Example
 
