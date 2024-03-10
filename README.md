@@ -326,7 +326,7 @@ ENET_PACKET_FLAG_SENT = 8
 ## OnTouch
 ###### • void onTouch(int touchX, int touchY);
 ## OnPacketRaw
-###### • bool onPacketRaw(TankPacketStruct raw, int type, size_t size, int flags);
+###### • bool onPacketRaw(TankPacketStruct raw);
 ## OnGameUpdatePacket
 ###### • bool onGameUpdatePacket(TankPacketStruct raw);
 
