@@ -119,15 +119,21 @@ float y;
 ## TankPacketStruct
 ```
 int type // Packet type
+int padding1
+int padding2
+int padding3
+int netid // NetID
 int state // Character state
+int padding4
 int value // Value
 int x // Player Position X
 int y // Player Position Y
 int speedx // player X speed
 int speedy // player Y speed
+int padding5
 int tilex // Punch X
 int tiley // Punch Y
-int netid // NetID
+
 ```
 
 ## NetAvatar
