@@ -312,7 +312,7 @@ ENET_PACKET_FLAG_SENT = 8
 ###### • OnTextPacket // Game Text Packet
 ###### • OnVarlist // Variant list Hook
 ###### • OnTouch // Hook Handle Touch At World Pos
-###### • OnRender // Hook OpenGL 3.0 renderer ( ImGui Renderer Coming soon )
+###### • OnRender // Hook OpenGL 3.0 renderer
 ###### • OnRawPacket // Game Packet Raw
 ###### • OnGameUpdatePacket // Hook Game Update Packet
 
@@ -329,10 +329,10 @@ ENET_PACKET_FLAG_SENT = 8
 ###### • bool onPacketRaw(TankPacketStruct raw);
 ## OnGameUpdatePacket
 ###### • bool onGameUpdatePacket(TankPacketStruct raw);
-
-# COMING SOON ( MAYBE )
 ## OnRender
-###### • void onRender(int isRendering);
+###### • void onRender(long deltaTime);
+# COMING SOON ( MAYBE )
+
 
 
 # Example
