@@ -118,22 +118,22 @@ float y;
 
 ## TankPacketStruct
 ```
-int type // Packet type
-int padding1
-int padding2
-int padding3
+uint8_t type // Packet type
+uint8_t padding1
+uint8_t padding2
+uint8_t padding3
 int netid // NetID
+int secid // Secondary NetID
 int state // Character state
-int padding4
+float padding4
 int value // Value
-int x // Player Position X
-int y // Player Position Y
-int speedx // player X speed
-int speedy // player Y speed
+float x // Player Position X
+float y // Player Position Y
+float speedx // player X speed
+float speedy // player Y speed
 int padding5
-int tilex // Punch X
-int tiley // Punch Y
-
+int punchx // Punch X
+int punchy // Punch Y
 ```
 
 ## NetAvatar
