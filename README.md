@@ -331,6 +331,8 @@ ENET_PACKET_FLAG_SENT = 8
 ###### • bool onGameUpdatePacket(TankPacketStruct raw);
 ## OnRender
 ###### • void onRender(long deltaTime);
+Parameter deltaTime is measure how long game render new frame from last rendered frame in milliseconds.
+
 # COMING SOON ( MAYBE )
 
 
