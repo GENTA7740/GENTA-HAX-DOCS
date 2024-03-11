@@ -231,29 +231,6 @@ int type // NPC Type: Normal Ghost 1, Mind ghost 12
 } target; // NPC will move into this target position;
 ```
 
-## GameUpdatePacket
-```
-uint8_t type
-uint8_t netid
-uint8_t jump_amount
-uint8_t count
-int32_t playerflags
-int32_t item
-int32_t packetflags
-float structflags
-int32_t intdata
-float vecx
-float vecy
-float vec2x
-float vec2y
-float particletime
-uint32_t mstate1
-uint32_t mstate2
-uint32_t datasize
-uint32_t data
-
-```
-
 # Packet Type
 
 ## Raw type
