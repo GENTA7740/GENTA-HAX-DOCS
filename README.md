@@ -183,20 +183,23 @@ int userId // userID of Local player
 int status // status of Local player
 int netId // local netID
 bool facing // is local player facing left
-int hair // hair of Local player
-int shirt // shirt of Local player
-int pants // pants of Local player
-int feet // feet of Local player
-int face // face of Local player
-int hand // hand of Local player
-int back // back of Local player
-int mask // mask of Local player
-int necklace // necklace of Local player
+uint32_t hair // hair of Local player
+uint32_t shirt // shirt of Local player
+uint32_t pants // pants of Local player
+uint32_t feet // feet of Local player
+uint32_t face // face of Local player
+uint32_t hand // hand of Local player
+uint32_t back // back of Local player
+uint32_t mask // mask of Local player
+uint32_t necklace // necklace of Local player
 int ping // Peer roundtrip
-int punchId // local punch id
+uint8_t punchId // local punch id
 int gemsCollected // unknown
 int gems // local gems count
 Vector4i skinColor // w = alpha, x = red, y = green, z = blue;
+Vector4i quickSlot // w = slot 1, x = slot 2, y = slot 3, z = slot 4;
+int backpackSlot
+uint32_t selectedItem // current selected item in inventory.
 ```
 
 ## Inventory
