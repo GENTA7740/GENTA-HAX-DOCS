@@ -75,7 +75,7 @@ Android/media/GENTAHAX/Script/here.lua
 ###### • Vector2f getTouchAtScreenPos()
 ###### • World* getWorld()
 ###### • Camera* getCamera()
-###### • void WorldToScreen(float x, float y) // Set your camera into specific position.
+###### • void worldToScreen(float x, float y) // Set your camera into specific position.
 # Coming soon
 
 ###### • void setLocalPlayer(bool, NetAvatar) // Use cloth effect | NetAvatar structure
