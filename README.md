@@ -233,9 +233,18 @@ int collisionType
 ## ItemInfo
 ```
 std::string name // Name of item
-int type // Item Type
-int rarity // Item Rarity
-int growth // item growt time
+int actionType
+int rarity
+int growth
+std::string texture // Main Texture
+std::string texture_2 // Alternative Texture?
+int editableType
+int collisionType
+int itemCategory
+Vector2i texturePos // Texture pixel position
+int clothType
+int blockType
+int hitSoundType
 ```
 
 ## WorldObject
