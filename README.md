@@ -223,7 +223,7 @@ int lastUpdate // GT Timing sh*t
 
 ## Tile
 ```
-CL_ pos;
+Vector2i pos;
 uint16_t fg // Tile Foreground itemID
 uint16_t bg // Tile Background itemID
 bool isCollideable
