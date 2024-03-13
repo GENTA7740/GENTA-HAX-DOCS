@@ -74,6 +74,8 @@ Android/media/GENTAHAX/Script/here.lua
 ###### • Vector2f getTouchAtWorldPos()
 ###### • Vector2f getTouchAtScreenPos()
 ###### • World* getWorld()
+###### • Camera* getCamera()
+###### • void WorldToScreen(float x, float y) // Set your camera into specific position.
 # Coming soon
 
 ###### • void setLocalPlayer(bool, NetAvatar) // Use cloth effect | NetAvatar structure
@@ -152,6 +154,13 @@ float w;
 float x;
 float y;
 float z;
+```
+
+## Camera
+```
+float scale; // Camera Scale factors
+Vector2f pos; // Current realtime camera position
+Vector2f center; // Center offset of camera
 ```
 
 ## TankPacketStruct
