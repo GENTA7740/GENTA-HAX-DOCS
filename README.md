@@ -6,9 +6,11 @@ this documentation will teach you how to make script for GentaHax
 - You must have Genta Hax :v
 - Lua programming basic knowledge [Lua site](https://lua.org)
 
+[ImGui Documentation](https://github.com/ocornut/imgui)
+
 ## File Path
 ```
-Android/data/com.rtsoft.growtopia/script/here.lua
+Android/media/GENTAHAX/Script/here.lua
 ```
 
 # Basic Knowledge
@@ -53,7 +55,7 @@ Android/data/com.rtsoft.growtopia/script/here.lua
 ###### • void sendPacketRaw(bool send_to_client, TankPacketStruct packet)
 ###### • void requestTileChange(int x, int y, int item_id)
 ###### • void sendPacket(int type, std::string pkt) // Type, Packet
-###### • void findPath(int x, int y, int delayMS) // delayMS is optional
+###### • bool findPath(int x, int y) // it will return true if Success finding a path.
 ###### • std::vector<Tile*> getTile()
 ###### • TileExtra* getExtraTile(int x, int y)
 ###### • Tile* checkTile(int x, int y)
@@ -110,10 +112,46 @@ Android/data/com.rtsoft.growtopia/script/here.lua
 
 # Structure
 
+## Vector2i
+```
+int x;
+int y;
+```
+
+## Vector3i
+```
+int x;
+int y;
+int z;
+```
+
+## Vector4i
+```
+int w;
+int x;
+int y;
+int z;
+```
+
 ## Vector2f
 ```
 float x;
 float y;
+```
+
+## Vector3f
+```
+float x;
+float y;
+float z;
+```
+
+## Vector4f
+```
+float w;
+float x;
+float y;
+float z;
 ```
 
 ## TankPacketStruct
@@ -138,10 +176,7 @@ int punchy // Punch Y
 
 ## NetAvatar
 ```
-{
-  int x;
-  int y;
-} pos;
+Vector2i pos;
 std::string name // name of Local player
 std::string country // country code of Local player
 int userId // userID of Local player
@@ -161,6 +196,7 @@ int ping // Peer roundtrip
 int punchId // local punch id
 int gemsCollected // unknown
 int gems // local gems count
+Vector4i skinColor // w = alpha, x = red, y = green, z = blue;
 ```
 
 ## Inventory
@@ -176,6 +212,7 @@ int type
 int growth
 int owner
 int flags
+std::list<uint32_t> adminList
 bool ready // ready harvest / no
 std::string label // Sign, Door, Audio racks
 std::string padding1
@@ -186,12 +223,11 @@ int lastUpdate // GT Timing sh*t
 
 ## Tile
 ```
-{
-  int x;
-  int y;
-} pos;
-int fg // Tile Foreground itemID
-int bg // Tile Background itemID
+CL_ pos;
+uint16_t fg // Tile Foreground itemID
+uint16_t bg // Tile Background itemID
+bool isCollideable
+int collisionType
 ```
 
 ## ItemInfo
@@ -208,10 +244,7 @@ int id // item id
 int amount // item amount
 int oid // object id
 int flags // unk
-{
-  int x;
-  int y;
-} pos;
+Vector2i pos
 ```
 
 ## World
@@ -227,14 +260,8 @@ int lastOid
 ```
 int id // NPC ID
 int type // NPC Type: Normal Ghost 1, Mind ghost 12
-{
-  int x;
-  int y;
-} current; // Current npc position in realtime
-{
-  int x;
-  int y;
-} target; // NPC will move into this target position;
+Vector2i current; // Current npc position in realtime
+Vector2i target; // NPC will move into this target position;
 ```
 
 # Packet Type
