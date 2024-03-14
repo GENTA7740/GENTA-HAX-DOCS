@@ -1,1 +1,1 @@
-Only support GENTA HAX v4.47 Patch 2.0+
+Only support GENTA HAX v4.51 Patch 4.0+
