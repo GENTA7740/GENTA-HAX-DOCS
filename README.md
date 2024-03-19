@@ -44,6 +44,9 @@ Android/media/GENTAHAX/Script/here.lua
 > String is a collection of characters.
 > Example: Kontol
 # API list
+###### • Response makeRequest(string url [, string method][, table options][, string post_fields][, int connection_time_out]) // Credit: BotHax YT
+###### • void getMac()
+###### • void getGid()
 ###### • void requestCollect(x, y, itemID) // untested.
 ###### • long getCurrentTimeInternal() // return current internal time in milliseconds.
 ###### • void randomMac()
@@ -113,6 +116,11 @@ Android/media/GENTAHAX/Script/here.lua
 ```
 
 # Structure
+
+## Response
+```
+string content
+```
 
 ## Vector2i
 ```
