@@ -248,6 +248,22 @@ uint16_t fg // Tile Foreground itemID
 uint16_t bg // Tile Background itemID
 bool isCollideable
 int collisionType
+int flags -- raw tile flag's
+TileFlag getFlags -- serialized tile flag's
+```
+
+## TileFlag
+```
+bool locked
+bool area
+bool flipped
+bool enabled
+bool public
+bool silenced
+bool water
+bool glue
+bool burn
+bool painted
 ```
 
 ## ItemInfo
