@@ -44,6 +44,7 @@ Android/media/GENTAHAX/Script/here.lua
 > String is a collection of characters.
 > Example: Kontol
 # API list
+###### • void sendWebhook(std::string url, std::string username, std::string message) // Send simple Discord Webhook.
 ###### • Response makeRequest(string url [, string method][, table options][, string post_fields][, int connection_time_out]) // Credit: BotHax YT
 ###### • void getMac()
 ###### • void getGid()
