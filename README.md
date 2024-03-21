@@ -44,6 +44,16 @@ Android/media/GENTAHAX/Script/here.lua
 > String is a collection of characters.
 > Example: Kontol
 # API list
+
+###### • int getSignal(x, y) // Get current geiger signal.
+```
+0 = None
+1 = Red
+2 = Yellow
+3 = Green
+4 = Radio Active ( You found the item )
+```
+###### • bool checkPath(x, y) // Check if there's a way into target position.
 ###### • void sendWebhook(std::string url, std::string username, std::string message) // Send simple Discord Webhook.
 ###### • Response makeRequest(string url [, string method][, table options][, string post_fields][, int connection_time_out]) // Credit: BotHax YT
 ###### • void getMac()
@@ -117,6 +127,7 @@ Android/media/GENTAHAX/Script/here.lua
 ```
 
 # Structure
+
 
 ## Response
 ```
