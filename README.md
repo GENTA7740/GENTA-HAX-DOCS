@@ -16,33 +16,76 @@ Android/media/GENTAHAX/Script/here.lua
 # Basic Knowledge
 > float
 > Float is a shortened term for "floating point." By definition, it's a fundamental data type built into the compiler that's used to define numeric values with floating decimal points.
-> Example: 0.123 1.356 44.264
+> Limitation: 1.175494351E - 38 - 3.402823466E + 38
+
+> double
+> Double is a shortened term for "doubled point." By definition, it's a fundamental data type built into the compiler that's used to define numeric values with floating decimal points.
+> Limitation: 2.2250738585072014E - 308 - 1.7976931348623158 E + 308
 
 > uint8_t 
-> unsigned integer type with width of exactly 8, 16, 32 and 64 bits respectively.
-> Example: 0 - 255.
+> unsigned integer type with width of exactly 8 bits respectively.
+> Limitation: 0 - 255.
 
-> uint32_t
-> unsigned integer type with width of exactly 8, 16, 32 and 64 bits respectively.
-> Example: 0 - 4294967295.
+> uint16_t
+> unsigned integer type with width of exactly 8, and 16 bits respectively.
+> Limitation: −32,768 - 32,767.
 
 > int32_t
-> signed integer type with width of exactly 8, 16, 32 and 64 bits respectively.
+> signed integer type with width of exactly 8, 16 and 32 bits respectively.
 > with no padding bits and using 2's complement for negative values.
-> Example: -2,147,483,648 - 2147483647.
+> Limitation: -2,147,483,648 - 2,147,483,647.
+
+> int64_t
+> signed long integer type with width of exactly 8, 16, 32 and 64 bits respectively.
+> with no padding bits and using 2's complement for negative values.
+> Limitation: -9,223,372,036,854,775,808 - 9,223,372,036,854,775,807.
 
 > bool
 > A boolean data type in lua is defined using the keyword bool. Usually, 1 ( true ) and 0 ( false ) are assigned to boolean variables as their default numerical values.
-> Example: true or false, 1 as true or 0 as false.
-
+> Limitation: true and false or 1 as true and 0 as false.
+```
+toggleCheat(26, false) -- Turning off cheat Mod fly.
+```
 > int 
 > integer
-> Example: -2147483647 - 2147483647.
+> Limitation: -2147483647 - 2147483647.
+> Example:
+```
+toggleCheat(26, true) -- Turning on cheat Mod fly.
+```
 
+> std::string
+> std::string is a collection of characters.
+> Example:
+```
+doLog("Hello world!")
+```
 
-> string
-> String is a collection of characters.
-> Example: Kontol
+> std::list or std::vector
+> std::list and std::vector is a table
+> Example:
+```
+fields = {
+  {
+      name = "Text",
+      value = "More text",
+      inline = true
+  },
+  {
+      name = "Even more text",
+      value = "Yup",
+      inline = true
+  },
+  {
+      name = "Use `\"inline\": true` parameter, if you want to display fields in the same line.",
+      value = "okay..."
+  },
+  {
+      name = "Thanks!",
+      value = "You're welcome :wink:"
+  }
+}
+```
 # API list
 
 ###### • int getSignal(x, y) // Get current geiger signal.
@@ -54,12 +97,12 @@ Android/media/GENTAHAX/Script/here.lua
 4 = Radio Active ( You found the item )
 ```
 ###### • bool checkPath(x, y) // Check if there's a way into target position.
-###### • void sendWebhook(std::string url, std::string username, std::string message) // Send simple Discord Webhook.
+###### • void sendWebhook(std::string url, DiscordWebhook) // Send Discord Webhook.
 ###### • Response makeRequest(string url [, string method][, table options][, string post_fields][, int connection_time_out]) // Credit: BotHax YT
 ###### • void getMac()
 ###### • void getGid()
 ###### • void requestCollect(x, y, itemID) // untested.
-###### • long getCurrentTimeInternal() // return current internal time in milliseconds.
+###### • int64_t getCurrentTimeInternal() // return current internal time in milliseconds.
 ###### • void randomMac()
 ###### • void randomGid()
 ###### • void setMac(std::string) // it has max 18 character.
@@ -129,6 +172,62 @@ Android/media/GENTAHAX/Script/here.lua
 # Structure
 
 
+## EmbedAuthor
+```
+std::string name,
+std::string url,
+std::string icon_url
+```
+
+## EmbedAuthor
+```
+std::string name,
+std::string url,
+std::string icon_url
+```
+
+## EmbedField
+```
+std::stringname;
+std::string value;
+bool inline;
+```
+
+## EmbedURL
+```
+std::string url
+```
+
+## EmbedURL
+```
+std::string url
+```
+
+## EmbedFooter
+```
+std::string text;
+std::string icon_url;
+```
+
+## EmbedBuilder
+```
+EmbedAuthor author;
+std::string title;
+std::string url;
+std::string description;
+std::string color = 15258703;
+std::list<EmbedField> fields;
+EmbedURL thumbnail;
+EmbedURL image;
+EmbedFooter footer;
+```
+
+## DiscordWebhook
+```
+std::string username, avatar_url, content;
+bool useEmbeds // make it true if you want use embeds.
+EmbedBuilder embeds;
+```
 ## Response
 ```
 string content
