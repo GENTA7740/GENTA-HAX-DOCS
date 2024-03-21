@@ -505,6 +505,6 @@ Parameter deltaTime is measure how long game render new frame from last rendered
 
 # Example
 
-Example script [Click me!](https://github.com/GENTA7740/GENTA-HAX-DOCS/tree/main/Example)
+Example script [Click me!](https://github.com/GENTA7740/GENTA-HAX-DOCS/tree/main/example)
 
 # Feel free to report bug mod on issue tab!
