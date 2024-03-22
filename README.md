@@ -96,8 +96,8 @@ fields = {
 3 = Green
 4 = Radio Active ( You found the item )
 ```
-###### • bool arrowToItem(bool isFloatingObject, int itemID_Target)
-###### • bool getDiscordID()
+###### • void arrowToItem(bool isFloatingObject, int itemID_Target)
+###### • std::string getDiscordID()
 ###### • bool checkPath(x, y) // Check if there's a way into target position.
 ###### • void sendWebhook(std::string url, DiscordWebhook) // Send Discord Webhook.
 ###### • Response makeRequest(string url [, string method][, table options][, string post_fields][, int connection_time_out]) // Credit: BotHax YT
