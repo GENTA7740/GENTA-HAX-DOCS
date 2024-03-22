@@ -88,7 +88,7 @@ fields = {
 ```
 # API list
 
-###### • int getSignal(x, y) // Get current geiger signal.
+###### • int getSignal() // Get current geiger signal.
 ```
 0 = None
 1 = Red
