@@ -335,7 +335,7 @@ uint32_t selectedItem // current selected item in inventory.
 ## Inventory
 ```
 int id // id of item
-int count // count of item
+int amount // count of item
 ```
 
 ## TileExtra
