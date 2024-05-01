@@ -144,7 +144,7 @@ fields = {
 ```
 "Fast Fruit" = 0
 "Ghost Mode" = 1
-"Night Vision" 2
+"Night Vision" = 2
 "Can See Ghost" = 3
 "Anti Bounce" = 4
 "Death Anywhere" = 5
@@ -156,9 +156,9 @@ fields = {
 "Dev Mode" = 11
 "Fast Wheel" = 12
 "Real Fake Bubble" = 13
-"Show Ping" = 14
+"Show Debug" (Assuming this is the equivalent of "Show Ping") = 14
 "Anti State" = 15
-"Anti Punch" = 16
+"No Particle" (Assuming this is the equivalent of "Anti Punch") = 16
 "Path Finder" = 17
 "Skip Update" = 18
 "Anti Tile Activation" = 19
@@ -168,7 +168,7 @@ fields = {
 "Can't move" = 23
 "Fast Dice" = 24
 "Auto Acc" = 25
-"Mod Fly = 26
+"Mod Fly" = 26
 ```
 
 # Structure
