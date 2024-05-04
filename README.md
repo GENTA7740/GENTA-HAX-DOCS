@@ -77,6 +77,7 @@ File Path:
 ## Packet Sender
 #### • void sendPacket(int type, String pkt)
 #### • void sendPacketRaw(bool send_to_client, TankPacketStruct packet)
+#### • void sendVariant(variantlist_t var, int delay, int netID)
 
 ## Getting System Timing
 #### • unsigned long getCurrentTimeInternal()
