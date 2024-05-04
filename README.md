@@ -3,12 +3,16 @@ Before we start make sure you know basic of lua scripting, you can try learn the
 
 Resource:
 [ImGui](https://github.com/ocornut/imgui)
+
 [Lua](https://lua.org)
+
 [OpenSSL](https://www.openssl.org/)
+
 [Growtopia](https://www.growtopiagame.com/)
 
 Discord Server:
 [![Discord](https://img.shields.io/discord/870604052281573406)](https://discord.gg/JTM9b6XR3A)
+
 File Path:
 #### • Android/media/GENTAHAX/Script/here.lua
 
