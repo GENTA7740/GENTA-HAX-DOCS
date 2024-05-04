@@ -134,7 +134,8 @@ fields = {
 ###### • Vector2f getTouchAtScreenPos()
 ###### • World* getWorld()
 ###### • Camera* getCamera()
-###### • void worldToScreen(float x, float y) // Set your camera into specific position.
+###### • void setCamera(float x, float y)
+###### • Vec2f worldToScreen(float x, float y)
 # Coming soon
 
 ###### • void setLocalPlayer(bool, NetAvatar) // Use cloth effect | NetAvatar structure
