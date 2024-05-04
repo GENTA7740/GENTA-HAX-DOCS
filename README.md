@@ -135,7 +135,7 @@ fields = {
 ###### • World* getWorld()
 ###### • Camera* getCamera()
 ###### • void setCamera(float x, float y)
-###### • Vec2f worldToScreen(float x, float y)
+###### • Vector2f worldToScreen(float x, float y)
 # Coming soon
 
 ###### • void setLocalPlayer(bool, NetAvatar) // Use cloth effect | NetAvatar structure
