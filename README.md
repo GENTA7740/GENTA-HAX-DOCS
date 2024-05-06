@@ -198,6 +198,14 @@ File Path:
 | int           | fruitCount          |
 | int           | lastUpdate          |
 
+## World
+| Type          | Attribute |
+|---------------|----------------|
+| String        | name           |
+| uint8_t       | width          |
+| uint8_t       | height         |
+| int           | lastOid        |
+
 ## Tile
 | Type          | Attribute |
 |---------------|----------------|
