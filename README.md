@@ -92,6 +92,7 @@ File Path:
 #### • void RemoveHooks()
 #### • void RemoveHook(String HookLabel)
 #### • void sleep(int sleep_in_ms)
+#### • void doToast(int toastType, int dissMissTimeInMilliSeconds, String text)
 
 
 ##  Logging
@@ -400,6 +401,15 @@ File Path:
 | No Render Image       | 29    |
 | Free Camera           | 30    |
 | Show Ready Harvest    | 31    |
+
+## ENet Packet Flag
+| ENet Packet Flag                | Value |
+|--------------------------------|-------|
+| ImGuiToastType_None      | 0     |
+| ImGuiToastType_Success   | 1     |
+| ImGuiToastType_Warning   | 2     |
+| ImGuiToastType_Error | 3 |
+| ImGuiToastType_Info          | 4     |
 
 
 ## ENet Packet Flag
