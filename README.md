@@ -118,7 +118,6 @@ File Path:
 
 ## Player Movement
 #### • bool findPath(int x, int y)
-#### • String getGid()
 
 # Structure & Attribute
 
