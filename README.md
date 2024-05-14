@@ -33,6 +33,14 @@ File Path:
 ## Setting Player Inventory
 #### • ~~void addItem(int itemID, uint8_t amount)~~
 
+## Getting World Info
+#### • World* getWorld()
+
+## Setting World Info
+
+## Getting World Object
+#### • std::list<WorldObject*> getWorldObject()
+
 ## Getting World Tile
 #### • Tile* checkTile(int x, int y)
 #### • std::vector<Tile*> getTile()
