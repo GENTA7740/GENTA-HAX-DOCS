@@ -38,9 +38,6 @@ File Path:
 
 ## Setting World Info
 
-## Getting World Object
-#### • std::list<WorldObject*> getWorldObject()
-
 ## Getting World Tile
 #### • Tile* checkTile(int x, int y)
 #### • std::vector<Tile*> getTile()
