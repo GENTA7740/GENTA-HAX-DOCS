@@ -406,8 +406,8 @@ File Path:
 | Free Camera           | 30    |
 | Show Ready Harvest    | 31    |
 
-## ENet Packet Flag
-| ENet Packet Flag                | Value |
+## Toast Type
+| Flags                | Value |
 |--------------------------------|-------|
 | ImGuiToastType_None      | 0     |
 | ImGuiToastType_Success   | 1     |
@@ -417,7 +417,7 @@ File Path:
 
 
 ## ENet Packet Flag
-| ENet Packet Flag                | Value |
+| Flags                | Value |
 |--------------------------------|-------|
 | ENET_PACKET_FLAG_RELIABLE      | 0     |
 | ENET_PACKET_FLAG_UNSEQUENCED   | 1     |
