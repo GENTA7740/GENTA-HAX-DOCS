@@ -88,7 +88,6 @@ File Path:
 | float   | posY                |
 | float   | xspeed           |
 | float   | yspeed           |
-| int     | padding5         |
 | int     | px           |
 | int     | py           |
 
