@@ -11,7 +11,7 @@ My discord server :
 ## ANDROID - LUA - DOCUMENTATION
 [
 ![Static Badge](https://img.shields.io/badge/Android-click_here-blue)
-](https://github.com/GENTA7740/GENTA-HAX-DOCS/blob/main/DOCS-WINDOWS.md)
+](https://github.com/GENTA7740/GENTA-HAX-DOCS/blob/main/DOCS-ANDROID.md)
 
 
 
