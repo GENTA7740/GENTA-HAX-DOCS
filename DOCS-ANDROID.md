@@ -112,6 +112,7 @@ File Path:
 
 ## Getting ItemDB
 #### • ItemInfo* getItemByID(int itemID)
+#### • ItemInfo* getItemByName(String itemName)
 
 ## Setting ItemDB
 
