@@ -98,7 +98,7 @@ File Path:
 #### • void RemoveHook(String HookLabel)
 #### • void sleep(int sleep_in_ms)
 #### • void doToast(int toastType, int dissMissTimeInMilliSeconds, String text)
-
+#### • void memoryPatch(uintptr_t memoryAddress, String hex)
 
 ##  Logging
 #### • void logToConsole(String text)
