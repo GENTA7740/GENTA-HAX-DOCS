@@ -98,7 +98,7 @@ File Path:
 #### • void RemoveHook(String HookLabel)
 #### • void sleep(int sleep_in_ms)
 #### • void doToast(int toastType, int dissMissTimeInMilliSeconds, String text)
-#### • void memoryPatch(uintptr_t memoryAddress, String hex)
+#### • void callToast(String text, int type) // type = 1: Long time, type = 0: Short time. ( Based on Java Toast. )
 
 ##  Logging
 #### • void logToConsole(String text)
