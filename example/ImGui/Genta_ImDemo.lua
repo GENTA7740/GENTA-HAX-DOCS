@@ -37,7 +37,10 @@ function imDemo(deltaTime)
     -- It is possible to put a widget on the same line, i.e. avoiding the automatic line feed:
     ImGui.SameLine()
     ImGui.TextUnformatted("One Line.")
-
+    -- BeginGroupPanel will show a line border with a title between the lines.
+    ImGui.BeginGroupPanel("Something?!", ImVec2(ImGui.GetContentRegionAvailWidth(), 0))
+    ImGui.TextUnformatted("Something goes here!?")
+    ImGui.EndGroupPanel();
     -- To maintain a tidy layout, let's show the next windows grouped in tree nodes.
     -- The user can collapse or expand these nodes to show or hide the content.
     -- It is not required to put widgets into tree nodes, this is just an example.
