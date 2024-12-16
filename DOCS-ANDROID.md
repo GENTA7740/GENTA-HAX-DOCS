@@ -99,6 +99,7 @@ File Path:
 #### • void sleep(int sleep_in_ms)
 #### • void doToast(int toastType, int dissMissTimeInMilliSeconds, String text)
 #### • void callToast(String text, int type) // type = 1: Long time, type = 0: Short time. ( Based on Java Toast. )
+#### • Vector2f getScreenSize()
 
 ##  Logging
 #### • void logToConsole(String text)
