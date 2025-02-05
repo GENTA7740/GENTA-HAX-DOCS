@@ -1,3 +1,7 @@
+#define ICON_MIN_FA 0xe000
+#define ICON_MAX_FA 0xf8ff // Above this are not registered. ( Because it's need Font Awesome Pro edition )
+
+
 #define ICON_FA_ABACUS "\xef\x99\x80"	// U+f640
 #define ICON_FA_ACORN "\xef\x9a\xae"	// U+f6ae
 #define ICON_FA_AD "\xef\x99\x81"	// U+f641
