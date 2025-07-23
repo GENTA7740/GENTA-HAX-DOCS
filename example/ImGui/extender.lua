@@ -65,9 +65,9 @@ function fRenderHook(deltaTime)
     ImGui.Begin("GSCRIPT")
 
     for i = 1, 4 do
-        local changed, value = ImGui.Checkbox("Checkbox " .. i, checkboxes[i])
+        local changed, value = ImGui.Checkbox(g_StateName[i], g_States[i])
         if changed then
-            checkboxes[i] = value
+            g_States[i] = value
         end
     end
 
