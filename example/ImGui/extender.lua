@@ -30,8 +30,7 @@ function fHookOnRaw(raw)
         end,
         [11] = function()
             if g_States[g_StateEnum.ANTI_TAKE_ITEM] then
-                logToConsole("TAKEND?")
-                return false
+                return true
             end
         end,
         [24] = function()
