@@ -71,12 +71,18 @@ function fRenderHook(deltaTime)
     ImGui.Begin("GSCRIPT")
 
     ImGui.BeginGroupPanel("CHEATS", ImVec2(ImGui.GetContentRegionAvailWidth(), 0))
-        for i = 1, 5 do
-        local changed, value = ImGui.Checkbox(g_StateName[i], g_States[i])
-        if changed then
-            g_States[i] = value
+        if ImGui.BeginTable("##table_0", 3) then
+            for i = 1, 5 do
+                ImGui.TableNextColumn()
+
+                local changed, value = ImGui.Checkbox(g_StateName[i], g_States[i])
+                if changed then
+                    g_States[i] = value
+                end
+            end
+            ImGui.EndTable()
         end
-    end
+
     ImGui.EndGroupPanel()
 
     ImGui.End()
