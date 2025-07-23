@@ -19,17 +19,17 @@ local g_States = { false, false, false, false }
 function fHookOnRaw(raw)
     local packetHandlers = {
         [0] = function() 
-            if g_States[GHOST_MODE] then
+            if g_States[g_StateEnum.GHOST_MODE] then
                 return true
             end
         end,
         [7] = function()
-            if g_States[ANTI_CHECKPOINT] then
+            if g_States[g_StateEnum.ANTI_CHECKPOINT] then
                 return true
             end
         end,
         [11] = function()
-            if g_States[ANTI_TAKE_ITEM] then
+            if g_States[g_StateEnum.ANTI_TAKE_ITEM] then
                 return true
             end
         end,
@@ -52,7 +52,7 @@ end
 function fHookOnGameUpdatePacket(raw)
     local packetHandlers = {
         [8] = function()
-            if g_States[FAST_DICE] then
+            if g_States[g_StateEnum.FAST_DICE] then
                 if raw.value == 0 then
                     logToConsole("Dice will roll: "..(raw.padding3 + 1))
                 end
