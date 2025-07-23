@@ -3,6 +3,7 @@ local g_StateEnum = {
     FAST_DICE = 2,
     ANTI_CHECKPOINT = 3,
     ANTI_TAKE_ITEM = 4,
+    SKIP_UPDATE = 5,
 }
 
 local g_StateName = {
@@ -10,6 +11,7 @@ local g_StateName = {
     "Fast Dice",
     "Anti Checkpoint",
     "Anti Take Item",
+    "Skip update",
 }
 
 local g_States = { false, false, false, false }
@@ -31,9 +33,13 @@ function fHookOnRaw(raw)
                 return true
             end
         end,
+        [24] = function()
+            sendPacket(2, "action|enter_game\n")
+            logToConsole("Skipping update...")
+        end,
         [25] = function()
             logToConsole("[BAN BYPASS] Auto ban packet have been blocked!")
-            return;
+            return true;
         end,
     }
 
@@ -64,12 +70,14 @@ end
 function fRenderHook(deltaTime)
     ImGui.Begin("GSCRIPT")
 
-    for i = 1, 4 do
+    ImGui.BeginGroupPanel("CHEATS", ImVec2(ImGui.GetContentRegionAvailWidth(), 0))
+        for i = 1, 5 do
         local changed, value = ImGui.Checkbox(g_StateName[i], g_States[i])
         if changed then
             g_States[i] = value
         end
     end
+    ImGui.EndGroupPanel()
 
     ImGui.End()
 end
