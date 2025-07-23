@@ -30,7 +30,8 @@ function fHookOnRaw(raw)
         end,
         [11] = function()
             if g_States[g_StateEnum.ANTI_TAKE_ITEM] then
-                return true
+                logToConsole("TAKEND?")
+                return false
             end
         end,
         [24] = function()
@@ -45,7 +46,7 @@ function fHookOnRaw(raw)
 
     local handler = packetHandlers[raw.type]
     if handler then
-        handler()
+        return handler() or false
     end
   return false
 end
@@ -62,7 +63,7 @@ function fHookOnGameUpdatePacket(raw)
 
     local handler = packetHandlers[raw.type]
     if handler then
-        handler()
+        return handler() or false
     end
     return false
 end
