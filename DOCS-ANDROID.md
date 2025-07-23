@@ -1,4 +1,4 @@
-# GENTA HAX - ANDROID - LUA DOCUMENTATION!
+# GENTA HAX - WINDOWS & ANDROID - LUA DOCUMENTATION!
 Before we start make sure you know basic of lua scripting, you can try learn the basic [here](https://lua.org/docs.html), there will be several custom data types something like **ImVec2**, **ImVec4**, **Vector2f**, **Vector3i**, etc. Make sure you know the **basic** of lua! or you can throw away your dream of becoming a lua scripter.
 
 Resource:
@@ -100,6 +100,8 @@ File Path:
 #### • void doToast(int toastType, int dissMissTimeInMilliSeconds, String text)
 #### • void callToast(String text, int type) // type = 1: Long time, type = 0: Short time. ( Based on Java Toast. )
 #### • Vector2f getScreenSize()
+#### • runThread(function())
+#### • killAllThread()
 
 ##  Logging
 #### • void logToConsole(String text)
