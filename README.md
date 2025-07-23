@@ -7,7 +7,7 @@ My discord server :
 
 ## WINDOWS & ANDROID - LUA - DOCUMENTATION
 [
-![Static Badge](https://img.shields.io/badge/Android-click_here-blue)
+![Static Badge](https://img.shields.io/badge/Click_Me-blue)
 ](https://github.com/GENTA7740/GENTA-HAX-DOCS/blob/main/DOCS-ANDROID.md)
 
 
