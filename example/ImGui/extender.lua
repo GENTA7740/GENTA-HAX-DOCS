@@ -74,6 +74,6 @@ function fRenderHook(deltaTime)
     ImGui.End()
 end
 
-AddHook("onrawpacket", "LABEL_01", fHookOnRaw)
-AddHook("ongameupdatepacket", "LABEL_02", fHookOnGameUpdatePacket)
-AddHook("OnRender", "LABEL_03", fRenderHook)
+AddHook("OnRender", "LABEL_01", fRenderHook)
+AddHook("onrawpacket", "LABEL_02", fHookOnRaw)
+AddHook("ongameupdatepacket", "LABEL_03", fHookOnGameUpdatePacket)
