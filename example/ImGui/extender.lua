@@ -106,8 +106,10 @@ function fHookOnRaw(raw)
             end
         end,
         [24] = function()
-            sendPacket(2, "action|enter_game\n")
-            logToConsole("Skipping update...")
+            if g_States[g_StateEnum.SKIP_UPDATE] then
+                sendPacket(2, "action|enter_game\n")
+                logToConsole("Skipping update...")
+            end
         end,
         [25] = function()
             logToConsole("[`"..math.random(1, 9).."BAN BYPASS``] Auto ban packet have been blocked!")
@@ -195,10 +197,9 @@ function fAutomationsMenu(deltaTime)
                 [1] = function()
                 end,
                 [2] = function()
-                    local changed, value = ImGui.Checkbox("Toggle", g_AutoCollectState)
+                    local changed, value = ImGui.Checkbox("Toggle", g_Collect.is_active)
                     if changed then
-                        g_AutoCollectState = value
-                        g_Collect.is_active = g_AutoCollectState;
+                        g_Collect.is_active = value
                     end
 
                     local range = g_Collect.range
@@ -303,7 +304,19 @@ function fOnVarlist(vlist, netid)
     end
   return false
 end
+
+
+function fOntextPacket(type, pkt)
+    local warpTarget = pkt:lower():match("/warp%s+(%S+)")
+    if warpTarget then
+        sendPacket(3, "action|join_request\nname|"..warpTarget:upper().."\ninvitedWorld|0\n")
+        logToConsole("`"..math.random(1, 9).."Warping to``: `w"..warpTarget:upper().."``")
+        return true
+    end
+    return false
+end
 AddHook("onvarlist", "LABEL_01", fOnVarlist)
 AddHook("OnRender", "LABEL_02", fRenderHook)
 AddHook("onrawpacket", "LABEL_03", fHookOnRaw)
 AddHook("ongameupdatepacket", "LABEL_04", fHookOnGameUpdatePacket)
+AddHook("ontextpacket", "LABEL_05", fOntextPacket)
