@@ -17,6 +17,15 @@ local g_StateName = {
     "Block SDB",
     "Block SB",
 }
+local g_EspEnum = {
+    NPC_ESP = 1,
+    PLAYER_ESP = 2,
+}
+
+local g_EspName = {
+    "NPC ESP",
+    "Player ESP"
+}
 
 local g_TabNames = {
     "\xef\x80\x93",
@@ -34,6 +43,7 @@ local g_AutoName = {
     "Collect",
     "Drop",
 }
+local g_EspStates = { false, false }
 local g_States = { false, false, false, false, false, false, false }
 local g_CurrentMainTab = 1
 local g_CurrentAutoTab = 1
@@ -132,7 +142,7 @@ end
 -- MENU --
 function fCheatsMenu(deltaTime)
     ImGui.BeginGroupPanel("CHEATS", ImVec2(ImGui.GetContentRegionAvailWidth(), 0))
-        if ImGui.BeginTable("##table_0", 3) then
+        if ImGui.BeginTable("##table_1", 3) then
             for i = 1, #g_StateName do
                 ImGui.TableNextColumn()
                 local changed, value = ImGui.Checkbox(g_StateName[i], g_States[i])
@@ -144,7 +154,19 @@ function fCheatsMenu(deltaTime)
         end
 
     ImGui.EndGroupPanel()
-    
+    ImGui.BeginGroupPanel("ESP", ImVec2(ImGui.GetContentRegionAvailWidth(), 0))
+        if ImGui.BeginTable("##table_2", 2) then
+            for i = 1, #g_EspName do
+                ImGui.TableNextColumn()
+                local onChanges, value = ImGui.Checkbox(g_EspName[i], g_EspStates[i])
+                if onChanges then
+                    g_EspStates[i] = value
+                end
+            end
+            ImGui.EndTable()
+        end
+
+    ImGui.EndGroupPanel()
     ImGui.SetNextItemWidth(ImGui.GetContentRegionAvailWidth())
     local changed, newText = ImGui.InputTextWithHint("##SET-VISUAL-NAME", "Visual name...", g_CustomName, 128)
     if changed then
@@ -199,9 +221,42 @@ function fAutomationsMenu(deltaTime)
 end
 
 -- END MENU --
-
+function fNpcEsp()
+    if g_EspStates[g_EspEnum.NPC_ESP] then
+        local p_local = getLocal()
+        if p_local ~= nil then
+            local _p = worldToScreen(p_local.pos.x, p_local.pos.y);
+            for _, v in pairs(getNpc()) do
+                if v ~= nil then
+                    local _start = worldToScreen(v.current.x - 16, v.current.y - 16);
+                    local _end = worldToScreen(v.current.x + 16, v.current.y + 16);
+                    ImGui.BG:AddRect(_start, _end, 0xFF2CFF00, 0.0, 1.0);
+                    ImGui.BG:AddLine(_p, _start, 0xFF2CFF00, 1.0);
+                end
+            end
+        end
+    end
+end
+function fPlayerEsp()
+    if g_EspStates[g_EspEnum.PLAYER_ESP] then
+        local p_local = getLocal()
+        if p_local ~= nil then
+            local _p = worldToScreen(p_local.pos.x, p_local.pos.y);
+            for _, v in pairs(getPlayerlist()) do
+                if v ~= nil then
+                    local _start = worldToScreen(v.pos.x - 8, v.pos.y - 8);
+                    local _end = worldToScreen((v.pos.x + 20 ) + 5, (v.pos.y + 30) + 5);
+                    ImGui.BG:AddRect(_start, _end, 0xFFFFFFFF, 0.0, 1.0);
+                    ImGui.BG:AddLine(_p, _start, 0xFFFFFFFF, 1.0);
+                end
+            end
+        end
+    end
+end
 function fEventLoop()
     g_Collect:run()
+    fNpcEsp()
+    fPlayerEsp()
 end
 
 function fRenderHook(deltaTime)
@@ -214,7 +269,6 @@ function fRenderHook(deltaTime)
                     ImGui.Col.Button,
                     (g_CurrentMainTab == i) and ImGui.ColorConvertFloat4ToU32(ImVec4(1.0, 0.0, 0.0, 1.0)) or ImGui.ColorConvertFloat4ToU32(ImVec4(1.0, 1.0, 1.0, 0.0))
                 )
-                -- ImGui.ColorConvertFloat4ToU32
                 if ImGui.ButtonWithStripe(g_TabNames[i], (g_CurrentMainTab == i), ImGui.GetContentRegionAvailWidth()) then
                     g_CurrentMainTab = i
                 end
