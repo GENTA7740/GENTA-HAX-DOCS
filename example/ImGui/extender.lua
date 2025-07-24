@@ -52,7 +52,8 @@ local g_CustomName = ""
 -- COLLECT CLASS, I'll clean it later --
 AutoCollect = {}
 AutoCollect.__index = AutoCollect
-
+local RED_U32 = ImGui.ColorConvertFloat4ToU32(ImVec4(1.0, 0.0, 0.0, 1.0))
+local WHITE_U32 = ImGui.ColorConvertFloat4ToU32(ImVec4(1.0, 1.0, 1.0, 0.0))
 function AutoCollect:new()
     local self = setmetatable({}, AutoCollect)
     self.is_active = false
@@ -225,14 +226,17 @@ end
 function fNpcEsp()
     if g_EspStates[g_EspEnum.NPC_ESP] then
         local p_local = getLocal()
-        if p_local ~= nil then
+        if type(p_local) == "table" then
             local _p = worldToScreen(p_local.pos.x, p_local.pos.y);
-            for _, v in pairs(getNpc()) do
-                if v ~= nil then
-                    local _start = worldToScreen(v.current.x - 16, v.current.y - 16);
-                    local _end = worldToScreen(v.current.x + 16, v.current.y + 16);
-                    ImGui.BG:AddRect(_start, _end, 0xFF2CFF00, 0.0, 1.0);
-                    ImGui.BG:AddLine(_p, _start, 0xFF2CFF00, 1.0);
+            local npc_table = getNpc()
+            if type(npc_table) == "table" then
+                for _, v in pairs(npc_table) do
+                    if v and v.current and v.current.x and v.current.y then
+                        local _start = worldToScreen(v.current.x - 16, v.current.y - 16)
+                        local _end = worldToScreen(v.current.x + 16, v.current.y + 16)
+                        ImGui.BG:AddRect(_start, _end, 0xFF2CFF00, 0.0, 1.0)
+                        ImGui.BG:AddLine(_p, _start, 0xFF2CFF00, 1.0)
+                    end
                 end
             end
         end
@@ -241,14 +245,17 @@ end
 function fPlayerEsp()
     if g_EspStates[g_EspEnum.PLAYER_ESP] then
         local p_local = getLocal()
-        if p_local ~= nil then
+        if type(p_local) == "table" then
             local _p = worldToScreen(p_local.pos.x, p_local.pos.y);
-            for _, v in pairs(getPlayerlist()) do
-                if v ~= nil then
-                    local _start = worldToScreen(v.pos.x - 8, v.pos.y - 8);
-                    local _end = worldToScreen((v.pos.x + 20 ) + 5, (v.pos.y + 30) + 5);
-                    ImGui.BG:AddRect(_start, _end, 0xFFFFFFFF, 0.0, 1.0);
-                    ImGui.BG:AddLine(_p, _start, 0xFFFFFFFF, 1.0);
+            local players_table = getPlayerlist()
+            if type(players_table) == "table" then
+                for _, v in pairs(players_table) do
+                    if v ~= nil then
+                        local _start = worldToScreen(v.pos.x - 8, v.pos.y - 8);
+                        local _end = worldToScreen((v.pos.x + 20 ) + 5, (v.pos.y + 30) + 5);
+                        ImGui.BG:AddRect(_start, _end, 0xFFFFFFFF, 0.0, 1.0);
+                        ImGui.BG:AddLine(_p, _start, 0xFFFFFFFF, 1.0);
+                    end
                 end
             end
         end
@@ -268,7 +275,7 @@ function fRenderHook(deltaTime)
                 
                 ImGui.PushStyleColor(
                     ImGui.Col.Button,
-                    (g_CurrentMainTab == i) and ImGui.ColorConvertFloat4ToU32(ImVec4(1.0, 0.0, 0.0, 1.0)) or ImGui.ColorConvertFloat4ToU32(ImVec4(1.0, 1.0, 1.0, 0.0))
+                    (g_CurrentMainTab == i) and RED_U32 or WHITE_U32
                 )
                 if ImGui.ButtonWithStripe(g_TabNames[i], (g_CurrentMainTab == i), ImGui.GetContentRegionAvailWidth()) then
                     g_CurrentMainTab = i
@@ -295,12 +302,21 @@ function fRenderHook(deltaTime)
     fEventLoop()
 end
 function fOnVarlist(vlist, netid)
-    if vlist[0] == "OnSDBroadcast" and g_States[g_StateEnum.BLOCK_SDB] then
-        logToConsole("[`4ANTI SDB``] Super duper broadcast have been blocked!")
-        return true
-    end
-    if vlist[0] == "OnConsoleMessage" and vlist[1]:match("CP:0_PL:4_OID:_CT:%[SB%]_") and g_States[g_StateEnum.BLOCK_SB] then
-        return true
+    local varCase = {
+        [hash32("OnSDBroadcast")] = function()
+            logToConsole("[`4ANTI SDB``] Super duper broadcast have been blocked!")
+            return true
+        end,
+        [hash32("OnConsoleMessage")] = function()
+            if vlist[1]:match("CP:0_PL:4_OID:_CT:%[SB%]_") and g_States[g_StateEnum.BLOCK_SB] then
+                return true
+            end
+        end,
+    }
+
+    local handler = varCase[hash32(vlist[0])]
+    if handler then
+        return handler() or false
     end
   return false
 end
