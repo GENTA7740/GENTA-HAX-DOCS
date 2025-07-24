@@ -14,7 +14,28 @@ local g_StateName = {
     "Skip update",
 }
 
-local g_States = { false, false, false, false }
+
+
+local g_TabNames = {
+    "\xef\x80\x93",
+    "\xef\x82\x85",
+};
+
+
+
+local g_AutoEnum = {
+    PUT_AND_BREAK = 1,
+    AUTO_COLLECT = 2,
+    AUTO_DROP = 3,
+}
+local g_AutoName = {
+    "PNB",
+    "Collect",
+    "Drop",
+}
+local g_States = { false, false, false, false, false }
+local g_CurrentMainTab = 1
+local g_CurrentAutoTab = 1
 
 function fHookOnRaw(raw)
     local packetHandlers = {
@@ -67,14 +88,12 @@ function fHookOnGameUpdatePacket(raw)
     return false
 end
 
-function fRenderHook(deltaTime)
-    ImGui.Begin("GSCRIPT")
-
+-- MENU --
+function fCheatsMenu(deltaTime)
     ImGui.BeginGroupPanel("CHEATS", ImVec2(ImGui.GetContentRegionAvailWidth(), 0))
         if ImGui.BeginTable("##table_0", 3) then
-            for i = 1, 5 do
+            for i = 1, #g_StateName do
                 ImGui.TableNextColumn()
-
                 local changed, value = ImGui.Checkbox(g_StateName[i], g_States[i])
                 if changed then
                     g_States[i] = value
@@ -84,7 +103,46 @@ function fRenderHook(deltaTime)
         end
 
     ImGui.EndGroupPanel()
+end
 
+function fAutomationsMenu(deltaTime)
+    ImGui.BeginChild("_AUTO_1", ImVec2(ImGui.GetContentRegionAvailWidth() * 0.222, 0))
+    for i = 1, #g_AutoName do
+        if ImGui.ButtonWithStripe(g_AutoName[i], (g_CurrentAutoTab == i), ImGui.GetContentRegionAvailWidth()) then
+            g_CurrentAutoTab = i
+        end
+    end
+    ImGui.EndChild()
+    ImGui.SameLine()
+    ImGui.BeginChild("_AUTO_2", ImVec2(ImGui.GetContentRegionAvailWidth(), 0), true)
+
+    ImGui.EndChild()
+end
+
+-- END MENU --
+
+function fRenderHook(deltaTime)
+    ImGui.Begin("GENTAHAX - Extender")
+    ImGui.BeginChild("_MAIN_CHILD_01", ImVec2(ImGui.GetContentRegionAvailWidth() / 10.0, 0), false)
+    for i = 1, #g_TabNames do
+        if ImGui.ButtonWithStripe(g_TabNames[i], (g_CurrentMainTab == i), ImGui.GetContentRegionAvailWidth()) then
+            g_CurrentMainTab = i
+        end
+    end
+    
+    ImGui.EndChild();
+    ImGui.SameLine();
+    ImGui.BeginChild("_MAIN_CHILD_02", ImVec2(ImGui.GetContentRegionAvailWidth(), 0));
+    local menuCases = {
+        [1] = fCheatsMenu,
+        [2] = fAutomationsMenu,
+    }
+
+    local handler = menuCases[g_CurrentMainTab]
+    if handler then
+        handler(deltaTime)
+    end
+    ImGui.EndChild();
     ImGui.End()
 end
 
