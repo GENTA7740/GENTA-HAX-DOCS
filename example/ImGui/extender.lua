@@ -4,6 +4,8 @@ local g_StateEnum = {
     ANTI_CHECKPOINT = 3,
     ANTI_TAKE_ITEM = 4,
     SKIP_UPDATE = 5,
+    BLOCK_SDB = 6,
+    BLOCK_SB = 7,
 }
 
 local g_StateName = {
@@ -12,11 +14,14 @@ local g_StateName = {
     "Anti Checkpoint",
     "Anti Take Item",
     "Skip update",
+    "Block SDB",
+    "Block SB",
 }
 
 local g_TabNames = {
     "\xef\x80\x93",
     "\xef\x82\x85",
+    "\xef\x80\x82",
 }
 
 local g_AutoEnum = {
@@ -29,10 +34,11 @@ local g_AutoName = {
     "Collect",
     "Drop",
 }
-local g_States = { false, false, false, false, false }
+local g_States = { false, false, false, false, false, false, false }
 local g_CurrentMainTab = 1
 local g_CurrentAutoTab = 1
 local g_AutoCollectState = false
+local g_CustomName = ""
 -- COLLECT CLASS, I'll clean it later --
 AutoCollect = {}
 AutoCollect.__index = AutoCollect
@@ -138,6 +144,17 @@ function fCheatsMenu(deltaTime)
         end
 
     ImGui.EndGroupPanel()
+    
+    ImGui.SetNextItemWidth(ImGui.GetContentRegionAvailWidth())
+    local changed, newText = ImGui.InputTextWithHint("##SET-VISUAL-NAME", "Visual name...", g_CustomName, 128)
+    if changed then
+        g_CustomName = newText
+        sendVariant({
+            [0] = "OnNameChanged",
+            [1] = "``"..g_CustomName.."``",
+        }, getLocal().netId)
+    end
+    
 end
 
 function fAutomationsMenu(deltaTime)
@@ -188,12 +205,20 @@ function fEventLoop()
 end
 
 function fRenderHook(deltaTime)
+    ImGui.SetNextWindowSize(ImVec2(600, 400), ImGui.Cond.Once)
     if ImGui.Begin("GENTAHAX - Extender") then
         if ImGui.BeginChild("MY_MAIN_CHILD_01", ImVec2(ImGui.GetContentRegionAvailWidth() / 10.0, 0), false) then
             for i = 1, #g_TabNames do
+                
+                ImGui.PushStyleColor(
+                    ImGui.Col.Button,
+                    (g_CurrentMainTab == i) and ImGui.ColorConvertFloat4ToU32(ImVec4(1.0, 0.0, 0.0, 1.0)) or ImGui.ColorConvertFloat4ToU32(ImVec4(1.0, 1.0, 1.0, 0.0))
+                )
+                -- ImGui.ColorConvertFloat4ToU32
                 if ImGui.ButtonWithStripe(g_TabNames[i], (g_CurrentMainTab == i), ImGui.GetContentRegionAvailWidth()) then
                     g_CurrentMainTab = i
                 end
+                ImGui.PopStyleColor(1)
             end
         end
         ImGui.EndChild()
@@ -214,7 +239,17 @@ function fRenderHook(deltaTime)
     ImGui.End()
     fEventLoop()
 end
-
-AddHook("OnRender", "LABEL_01", fRenderHook)
-AddHook("onrawpacket", "LABEL_02", fHookOnRaw)
-AddHook("ongameupdatepacket", "LABEL_03", fHookOnGameUpdatePacket)
+function fOnVarlist(vlist, netid)
+    if vlist[0] == "OnSDBroadcast" and g_States[g_StateEnum.BLOCK_SDB] then
+        logToConsole("[`4ANTI SDB``] Super duper broadcast have been blocked!")
+        return true
+    end
+    if vlist[0] == "OnConsoleMessage" and vlist[1]:match("CP:0_PL:4_OID:_CT:%[SB%]_") and g_States[g_StateEnum.BLOCK_SB] then
+        return true
+    end
+  return false
+end
+AddHook("onvarlist", "LABEL_01", fOnVarlist)
+AddHook("OnRender", "LABEL_02", fRenderHook)
+AddHook("onrawpacket", "LABEL_03", fHookOnRaw)
+AddHook("ongameupdatepacket", "LABEL_04", fHookOnGameUpdatePacket)
