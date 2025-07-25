@@ -300,6 +300,8 @@ function fRenderHook(deltaTime)
     end
     ImGui.End()
     fEventLoop()
+    collectgarbage("collect")
+	collectgarbage("setstepmul", 30)
 end
 function fOnVarlist(vlist, netid)
     local varCase = {
@@ -327,6 +329,58 @@ function fOntextPacket(type, pkt)
     if warpTarget then
         sendPacket(3, "action|join_request\nname|"..warpTarget:upper().."\ninvitedWorld|0\n")
         logToConsole("`"..math.random(1, 9).."Warping to``: `w"..warpTarget:upper().."``")
+        return true
+    end
+    local bscan_det = pkt:lower():match("/warp%s+(%S+)")
+    if bscan_det then
+        sendPacket(3, "action|join_request\nname|"..warpTarget:upper().."\ninvitedWorld|0\n")
+        logToConsole("`"..math.random(1, 9).."Warping to``: `w"..warpTarget:upper().."``")
+        return true
+    end
+    local fscan_det = pkt:lower():match("/bscan")
+    if fscan_det then
+        local _dmp = ""
+        local _nmap = {}
+
+        for _, tile in pairs(getTile()) do
+            if tile then
+                if tile.fg and tile.fg ~= 0 then
+                    if _nmap[tile.fg] == nil then
+                        _nmap[tile.fg] = 1
+                    else
+                        _nmap[tile.fg] = _nmap[tile.fg] + 1
+                    end
+                end
+
+                if tile.bg and tile.bg ~= 0 then
+                    if _nmap[tile.bg] == nil then
+                        _nmap[tile.bg] = 1
+                    else
+                        _nmap[tile.bg] = _nmap[tile.bg] + 1
+                    end
+                end
+            end
+        end
+
+        for itemID, count in pairs(_nmap) do
+            _dmp = _dmp .. tostring(itemID) .. "," .. tostring(count) .. ","
+        end
+
+        local dlgd =
+            "add_label_with_icon|big|World Blocks.|left|6016|\n" ..
+            "add_spacer|small\n" ..
+            "add_label_with_icon_button_list|small|`w%s : %s|left|blockScan_|itemID_itemAmount|" ..
+            _dmp ..
+            "\nadd_spacer|small|\n" ..
+            "end_dialog|gscan_block|Exit||\n" ..
+            "add_quick_exit|\n"
+
+        local var = {}
+        var[0] = "OnDialogRequest"
+        var[1] = dlgd
+        sendVariant(var, -1, 100)
+
+
         return true
     end
     return false
