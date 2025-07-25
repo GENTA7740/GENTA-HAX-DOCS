@@ -331,14 +331,8 @@ function fOntextPacket(type, pkt)
         logToConsole("`"..math.random(1, 9).."Warping to``: `w"..warpTarget:upper().."``")
         return true
     end
-    local bscan_det = pkt:lower():match("/warp%s+(%S+)")
+    local bscan_det = pkt:lower():match("/bscan")
     if bscan_det then
-        sendPacket(3, "action|join_request\nname|"..warpTarget:upper().."\ninvitedWorld|0\n")
-        logToConsole("`"..math.random(1, 9).."Warping to``: `w"..warpTarget:upper().."``")
-        return true
-    end
-    local fscan_det = pkt:lower():match("/bscan")
-    if fscan_det then
         local _dmp = ""
         local _nmap = {}
 
@@ -380,6 +374,41 @@ function fOntextPacket(type, pkt)
         var[1] = dlgd
         sendVariant(var, -1, 100)
 
+
+        return true
+    end
+    local fscan_det = pkt:lower():match("/fscan")
+    if fscan_det then
+        local _dump = ""
+        local mapped = {}
+
+        for _, obj in pairs(getWorldObject()) do
+            if obj and obj.id then
+                if mapped[obj.id] == nil then
+                    mapped[obj.id] = obj.amount
+                else
+                    mapped[obj.id] = mapped[obj.id] + obj.amount
+                end
+            end
+        end
+
+        for itemID, amount in pairs(mapped) do
+            _dump = _dump .. tostring(itemID) .. "," .. tostring(amount) .. ","
+        end
+
+        local dlgd =
+            "add_label_with_icon|big|Floating objects.|left|6016|\n" ..
+            "add_spacer|small\n" ..
+            "add_label_with_icon_button_list|small|`w%s : %s|left|floatingScan_|itemID_itemAmount|" ..
+            _dump ..
+            "\nadd_spacer|small|\n" ..
+            "end_dialog|gscan_float|Exit||\n" ..
+            "add_quick_exit|\n"
+
+        local var = {}
+        var[0] = "OnDialogRequest"
+        var[1] = dlgd
+        sendVariant(var, -1, 100)
 
         return true
     end
