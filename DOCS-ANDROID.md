@@ -102,6 +102,7 @@ File Path:
 #### • Vector2f getScreenSize()
 #### • void runThread(function(), [optional] String thread_label)
 #### • void killAllThread()
+#### • table<String> getThreadsID()
 #### • void killThread(String thread_label)
 #### • int hash32(String) -- Returning a 32 bit int (uint32_t) hashes.
 #### • int hash64(String) -- Returning a 64 bit int (uint64_t) hashes.
