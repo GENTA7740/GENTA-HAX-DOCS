@@ -100,8 +100,9 @@ File Path:
 #### • void doToast(int toastType, int dissMissTimeInMilliSeconds, String text)
 #### • void callToast(String text, int type) // type = 1: Long time, type = 0: Short time. ( Based on Java Toast. )
 #### • Vector2f getScreenSize()
-#### • void runThread(function())
+#### • void runThread(function(), [optional] String thread_label)
 #### • void killAllThread()
+#### • void killThread(String thread_label)
 #### • int hash32(String) -- Returning a 32 bit int (uint32_t) hashes.
 #### • int hash64(String) -- Returning a 64 bit int (uint64_t) hashes.
 
