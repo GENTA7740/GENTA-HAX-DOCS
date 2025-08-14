@@ -107,6 +107,8 @@ File Path:
 #### • int hash32(String) -- Returning a 32 bit int (uint32_t) hashes.
 #### • int hash64(String) -- Returning a 64 bit int (uint64_t) hashes.
 
+
+
 ##  Logging
 #### • void logToConsole(String text)
 #### • void doLog(String text)
@@ -128,6 +130,8 @@ File Path:
 
 ## Setting Cheats
 #### • void toggleCheat(int cheat_code, bool state)
+#### • void restoreMemoryByName(String cheat_name) {{ Example: restoreMemoryByName("Mod Fly") -- Case insensitive btw }}
+#### • void patchMemoryByName(String cheat_name) {{ Example: patchMemoryByName("Mod Fly") -- Case insensitive btw }}
 
 ## Player Movement
 #### • bool findPath(int x, int y)
