@@ -252,14 +252,12 @@ File Path:
 | Type        | Attribute |
 |-------------|--------------------|
 | std::string | name               |
-| int         | actionType         |
+| int         | flags              |
 | int         | rarity             |
 | int         | growth             |
 | std::string | texture            |
 | std::string | texture_2          |
-| int         | editableType       |
 | int         | collisionType      |
-| int         | itemCategory       |
 | Vector2i    | texturePos         |
 | int         | clothType          |
 | int         | blockType          |
