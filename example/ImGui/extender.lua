@@ -79,9 +79,7 @@ end
 
 function AutoCollect:run()
     if self:shouldRun() then
-        runCoroutine(function()
-            requestCollectByRange(self.range)
-        end)
+        requestCollectByRange(self.range)
     end
 end
 
