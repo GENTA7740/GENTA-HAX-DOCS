@@ -238,8 +238,11 @@ File Path:
 ## TileFlag
 | Type | Attribute |
 |------|--------------------|
+| bool | tileExtra          |
 | bool | locked             |
-| bool | area               |
+| bool | wasSpliced         |
+| bool | willSpawnSeedToo   |
+| bool | seed               |
 | bool | flipped            |
 | bool | enabled            |
 | bool | public             |
