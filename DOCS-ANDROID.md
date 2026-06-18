@@ -44,7 +44,7 @@ File Path:
 #### • TileExtra* getExtraTile(int x, int y)
 
 ## Setting World Tile
-#### • setTile(x, y, Tile*)
+#### • setTile(Tile*)
 
 ## Getting World Object
 #### • std::list<WorldObject*> getWorldObject()
