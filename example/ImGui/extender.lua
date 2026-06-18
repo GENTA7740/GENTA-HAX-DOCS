@@ -20,11 +20,13 @@ local g_StateName = {
 local g_EspEnum = {
     NPC_ESP = 1,
     PLAYER_ESP = 2,
+    SEED_READY_ESP = 3,
 }
 
 local g_EspName = {
     "NPC ESP",
-    "Player ESP"
+    "Player ESP",
+    "Tree Ready ESP"
 }
 
 local g_TabNames = {
@@ -259,10 +261,34 @@ function fPlayerEsp()
         end
     end
 end
+
+function fSeedReadyEsp()
+    if g_EspStates[g_EspEnum.SEED_READY_ESP] then
+        local p_local = getLocal()
+        if p_local ~= nil then
+            local _p = worldToScreen(p_local.pos.x, p_local.pos.y);
+            for _, v in pairs(getTile()) do
+                if v ~= nil then
+                    local p_extra = getExtraTile(v.pos.x, v.pos.y);
+                    if p_extra ~= nil then
+                        if p_extra.ready then
+                            local _start = worldToScreen((v.pos.x * 32) + 32,(v.pos.y * 32) + 32);
+                            local _end = worldToScreen((v.pos.x * 32), (v.pos.y * 32));
+                            ImGui.BG:AddRect(_start, _end, 0xFF2CFF00, 0.0, 1.0);
+                            ImGui.BG:AddLine(_p, _start, 0xFF2CFF00, 1.0);
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
 function fEventLoop()
     g_Collect:run()
     fNpcEsp()
     fPlayerEsp()
+    fSeedReadyEsp()
 end
 
 function fRenderHook(deltaTime)
