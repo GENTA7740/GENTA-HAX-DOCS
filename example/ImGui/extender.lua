@@ -138,6 +138,7 @@ function fHookOnGameUpdatePacket(raw)
         [4] = function()
             if g_States[g_StateEnum.ANTI_WORLD_CRASH] then
                 sendPacket(3, "action|join_request\nname|EXIT\ninvitedWorld|0\n")
+                return true
             end
         end
     }
