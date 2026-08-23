@@ -6,6 +6,7 @@ local g_StateEnum = {
     SKIP_UPDATE = 5,
     BLOCK_SDB = 6,
     BLOCK_SB = 7,
+    ANTI_WORLD_CRASH = 8,
 }
 
 local g_StateName = {
@@ -16,6 +17,7 @@ local g_StateName = {
     "Skip update",
     "Block SDB",
     "Block SB",
+    "Anti World Crash",
 }
 local g_EspEnum = {
     NPC_ESP = 1,
@@ -133,6 +135,11 @@ function fHookOnGameUpdatePacket(raw)
                 end
             end
         end,
+        [4] = function()
+            if g_States[g_StateEnum.ANTI_WORLD_CRASH] then
+                sendPacket(3, "action|join_request\nname|EXIT\ninvitedWorld|0\n")
+            end
+        end
     }
 
     local handler = packetHandlers[raw.type]
